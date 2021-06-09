@@ -1,174 +1,183 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html lang="en">
+
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-<title>翻译-五个高级React模式 - muggle‘s blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
 
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
 
+  
+  <title>翻译-五个高级React模式</title>
+  
+  <link rel="canonical" href="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/">
+  
+  <meta name="description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你">
+  
+  
+  <meta name="keywords" content="前端 代码 程序员 摄影 吉他 旅行 Dota2 数码控">
+  
+  <meta name="author" content="muggle-shuizy">
+  
+  <meta property="og:image" content="https://shuizyang.comundefined">
+  
+  <meta property="og:site_name" content="muggle‘s blog">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="翻译-五个高级React模式">
+  
+  <meta property="og:description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你">
+  
+  <meta property="og:url" content="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/">
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="翻译-五个高级React模式">
+  
+  <meta name="twitter:description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你">
+  
+  
+  <meta name="twitter:image" content="https://shuizyang.comundefined">
+  
+  <meta name="twitter:url" content="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/">
 
-<meta name="description" content="写点杂七杂八的东西吧">
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/css/prism-dark.css">
+  <link rel="stylesheet" href="/css/prism-line-numbers.css">
+  <!-- User css -->
+  
+  <link rel="stylesheet" href="/css/user.css">
+  
 
-<meta name="keywords" content="前端 代码 程序员 摄影 吉他 旅行 Dota2 数码控">
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
 
-
-    <meta name="description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。">
-<meta name="keywords" content="翻译,React">
-<meta property="og:type" content="article">
-<meta property="og:title" content="翻译-五个高级React模式">
-<meta property="og:url" content="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/index.html">
-<meta property="og:site_name" content="muggle‘s blog">
-<meta property="og:description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4">
-<meta property="og:image" content="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4">
-<meta property="og:image" content="https://miro.medium.com/max/392/1*_miRfZkNA8YkhIBSCywBdQ.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*fNxmemv7z_s7M9n1xOyxPg.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*X2NPGy2TRJ1MsZbkR7VACA.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*NxH5i3ugYXxlPR4NO9q_0Q.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*5gRvmOA-H4DuDOIbGb25CA.png">
-<meta property="og:image" content="https://miro.medium.com/max/4736/1*Wc8urvuBB8fnQQhVMLd88w.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*8bmVDqp_KOg347dT_600Pw.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*_UoRzY4lRe4WtFvJl8BtTg.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*hkyJ0eb2NRhX3pUoni0o-w.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*Sxgs_af830xmllTwgW-HKw.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*auZca0g2eg1Cv7THl6df6g.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*59EpcnFx_GkrJ3NQ-Zg3CA.png">
-<meta property="og:image" content="https://miro.medium.com/max/1400/1*0hLIgVUrAN1ld9Yp3DrJQw.png">
-<meta property="og:image" content="https://miro.medium.com/max/5468/1*LVq5PcC09q34j7FExkY5Zg.png">
-<meta property="og:updated_time" content="2021-06-02T08:00:51.086Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻译-五个高级React模式">
-<meta name="twitter:description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。">
-<meta name="twitter:image" content="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4">
-<meta name="twitter:creator" content="@shuizheny">
-<meta name="twitter:site" content="https://twitter.com/shuizheny">
-
-
-
-
-
-<link rel="icon" href="/favicon.png">
-
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-
-<link rel="stylesheet" href="/css/style.css">
-
-<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
 
 </head>
-<body>
-    
-<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
-                
-                    
-                    MUGGLE
-                    
-                
-            </a>
-            <div class="navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="navbar-menu navbar-start">
-            
-            <a class="navbar-item " href="/archives">Archives</a>
-            
-            <a class="navbar-item " href="/about">About</a>
-            
-        </div>
-        
-        <div class="navbar-menu navbar-end">
-            
-            <a class="navbar-item search" title="Search" href="javascript:;">
-                <i class="fas fa-search"></i>
-            </a>
-            
-            
-            
-            <a class="navbar-item" title="Twitter" href="https://twitter.com/shuizheny">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-               
-            <a class="navbar-item" title="GitHub" href="https://github.com/mxggle">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-               
-            <a class="navbar-item" title="instagram" href="https://www.instagram.com/s_z_yang/">
-                
-                <i class="fab fa-instagram"></i>
-                
-            </a>
-               
-            
-        </div>
-    </div>
-</nav>
 
-    <section class="section">
-    <div class="container">
-    <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            翻译-五个高级React模式
-        
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick="setDarkMode(true)" id="darkBtn">🌑</div>
+      <div onclick="setDarkMode(false)" id="lightBtn" class="hidden">☀️</div>
+      <script>
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
     </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2021-06-02T07:34:18.700Z" itemprop="datePublished">Jun 2 2021</time>
-        </span>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      Hi Folks.
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/About" class="ml">About</a>
+          
         
         
-        <span class="column is-narrow">
-            
-            
-            20 minutes read (About 2968 words)
-        </span>
+          
+            <a href="mailto:muggle6594@gmail.com" target="_blank" class="ml">Email</a>
+          
         
+      </div>
     </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p><img src="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4" alt="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4"></p>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>翻译-五个高级React模式</h2>
+
+  <p><img src="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4" alt="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4"></p>
 <blockquote>
 <p>原文： <a href="https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6" target="_blank" rel="noopener">https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6</a></p>
 </blockquote>
@@ -198,7 +207,25 @@
 </blockquote>
 <h2 id="1-复合组件模式（Compound-Components-Pattern）"><a href="#1-复合组件模式（Compound-Components-Pattern）" class="headerlink" title="1. 复合组件模式（Compound Components Pattern）"></a>1. 复合组件模式（Compound Components Pattern）</h2><p>这种模式允许创建富有表现力和声明性的组件，避免非必要的<a href="https://kentcdodds.com/blog/prop-drilling" target="_blank" rel="noopener">prop drilling</a>。如果你想让你的组件更有可塑性，有更好的关注点分离和易理解的API，你应该考虑使用这种模式。</p>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/compound-component" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/compound-component</a></p>
-<p><figure class="highlight jsx hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> &#123; Counter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./Counter"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Usage</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> handleChangeCounter = <span class="hljs-function">(<span class="hljs-params">count</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"count"</span>, count);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    &lt;Counter onChange=&#123;handleChangeCounter&#125;&gt;</span><br><span class="line">      &lt;Counter.Decrement icon=<span class="hljs-string">"minus"</span> /&gt;</span><br><span class="line">      &lt;Counter.Label&gt;Counter&lt;<span class="hljs-regexp">/Counter.Label&gt;</span></span><br><span class="line"><span class="hljs-regexp">      &lt;Counter.Count max=&#123;10&#125; /</span>&gt;</span><br><span class="line">      &lt;Counter.Increment icon=<span class="hljs-string">"plus"</span> /&gt;</span><br><span class="line">    &lt;<span class="hljs-regexp">/Counter&gt;</span></span><br><span class="line"><span class="hljs-regexp">  );</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">export &#123; Usage &#125;;</span></span><br></pre></td></tr></table></figure></p>
+<pre><code class="jsx">import React from &quot;react&quot;;
+import { Counter } from &quot;./Counter&quot;;
+
+function Usage() {
+  const handleChangeCounter = (count) =&gt; {
+    console.log(&quot;count&quot;, count);
+  };
+
+  return (
+    &lt;Counter onChange={handleChangeCounter}&gt;
+      &lt;Counter.Decrement icon=&quot;minus&quot; /&gt;
+      &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;
+      &lt;Counter.Count max={10} /&gt;
+      &lt;Counter.Increment icon=&quot;plus&quot; /&gt;
+    &lt;/Counter&gt;
+  );
+}
+
+export { Usage };</code></pre>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
 <li>减少了API的复杂性：与其把所有的<code>props</code>都塞进一个巨大的父组件中，然后再把这些<code>props</code>钻到子UI组件中，不如在这里把每个<code>props</code>都连接到各自最有意义的子组件上。</li>
 </ul>
@@ -227,7 +254,26 @@
 <li><p><a href="https://reach.tech/accordion" target="_blank" rel="noopener">Reach UI</a></p>
 <h2 id="2-受控属性模式"><a href="#2-受控属性模式" class="headerlink" title="2. 受控属性模式"></a>2. 受控属性模式</h2><p>这种模式将你的组件转变为一个受控组件。外部状态作为 “单一事实源 “被消耗，允许用户插入自定义逻辑，修改默认组件的行为。</p>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/control-props" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/control-props</a></p>
-<p><figure class="highlight jsx hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> &#123; Counter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./Counter"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Usage</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">const</span> handleChangeCounter = <span class="hljs-function">(<span class="hljs-params">newCount</span>) =&gt;</span> &#123;</span><br><span class="line">    setCount(newCount);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    &lt;Counter value=&#123;count&#125; onChange=&#123;handleChangeCounter&#125;&gt;</span><br><span class="line">      &lt;Counter.Decrement icon=&#123;<span class="hljs-string">"minus"</span>&#125; /&gt;</span><br><span class="line">      &lt;Counter.Label&gt;Counter&lt;<span class="hljs-regexp">/Counter.Label&gt;</span></span><br><span class="line"><span class="hljs-regexp">      &lt;Counter.Count max=&#123;10&#125; /</span>&gt;</span><br><span class="line">      &lt;Counter.Increment icon=&#123;<span class="hljs-string">"plus"</span>&#125; /&gt;</span><br><span class="line">    &lt;<span class="hljs-regexp">/Counter&gt;</span></span><br><span class="line"><span class="hljs-regexp">  );</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">export &#123; Usage &#125;;</span></span><br></pre></td></tr></table></figure></p>
+<pre><code class="jsx">import React, { useState } from &quot;react&quot;;
+import { Counter } from &quot;./Counter&quot;;
+
+function Usage() {
+const [count, setCount] = useState(0);
+
+const handleChangeCounter = (newCount) =&gt; {
+  setCount(newCount);
+};
+return (
+  &lt;Counter value={count} onChange={handleChangeCounter}&gt;
+    &lt;Counter.Decrement icon={&quot;minus&quot;} /&gt;
+    &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;
+    &lt;Counter.Count max={10} /&gt;
+    &lt;Counter.Increment icon={&quot;plus&quot;} /&gt;
+  &lt;/Counter&gt;
+);
+}
+
+export { Usage };</code></pre>
 <h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3></li>
 <li><p>给予更多的控制：由于主状态暴露在你的组件之外，用户可以控制它，因此可以直接影响你的组件。</p>
 <p>  <img src="https://miro.medium.com/max/1400/1*8bmVDqp_KOg347dT_600Pw.png" alt="https://miro.medium.com/max/1400/1*8bmVDqp_KOg347dT_600Pw.png"></p>
@@ -242,7 +288,45 @@
 <li><p><a href="https://material-ui.com/components/rating/#rating" target="_blank" rel="noopener">Material UI</a></p>
 <h2 id="3-自定义钩子模式"><a href="#3-自定义钩子模式" class="headerlink" title="3. 自定义钩子模式"></a>3. 自定义钩子模式</h2><p>让我们在 “控制反转 “中更进一步：主要的逻辑现在被转移到一个自定义的钩子中。这个钩子可以被用户访问，并且暴露了几个内部逻辑（状态、处理程序），允许他对你的组件有更好的控制。</p>
 <h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/custom-hooks" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/custom-hooks</a></p>
-<p><figure class="highlight jsx hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> &#123; Counter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./Counter"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> &#123; useCounter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./useCounter"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Usage</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> &#123; count, handleIncrement, handleDecrement &#125; = useCounter(<span class="hljs-number">0</span>);</span><br><span class="line">  <span class="hljs-keyword">const</span> MAX_COUNT = <span class="hljs-number">10</span>;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">const</span> handleClickIncrement = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-comment">//Put your custom logic</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (count &lt; MAX_COUNT) &#123;</span><br><span class="line">      handleIncrement();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Counter value=&#123;count&#125;&gt;</span><br><span class="line">        &lt;Counter.Decrement</span><br><span class="line">          icon=&#123;<span class="hljs-string">"minus"</span>&#125;</span><br><span class="line">          onClick=&#123;handleDecrement&#125;</span><br><span class="line">          disabled=&#123;count === <span class="hljs-number">0</span>&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;Counter.Label&gt;Counter&lt;<span class="hljs-regexp">/Counter.Label&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;Counter.Count /</span>&gt;</span><br><span class="line">        &lt;Counter.Increment</span><br><span class="line">          icon=&#123;<span class="hljs-string">"plus"</span>&#125;</span><br><span class="line">          onClick=&#123;handleClickIncrement&#125;</span><br><span class="line">          disabled=&#123;count === MAX_COUNT&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;<span class="hljs-regexp">/Counter&gt;</span></span><br><span class="line"><span class="hljs-regexp">      &lt;button onClick=&#123;handleClickIncrement&#125; disabled=&#123;count === MAX_COUNT&#125;&gt;</span></span><br><span class="line"><span class="hljs-regexp">        Custom increment btn 1</span></span><br><span class="line"><span class="hljs-regexp">      &lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="hljs-regexp">/&gt;</span></span><br><span class="line"><span class="hljs-regexp">  );</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">export &#123; Usage &#125;;</span></span><br></pre></td></tr></table></figure></p>
+<pre><code class="jsx">import React from &quot;react&quot;;
+import { Counter } from &quot;./Counter&quot;;
+import { useCounter } from &quot;./useCounter&quot;;
+
+function Usage() {
+const { count, handleIncrement, handleDecrement } = useCounter(0);
+const MAX_COUNT = 10;
+
+const handleClickIncrement = () =&gt; {
+  //Put your custom logic
+  if (count &lt; MAX_COUNT) {
+    handleIncrement();
+  }
+};
+
+return (
+  &lt;&gt;
+    &lt;Counter value={count}&gt;
+      &lt;Counter.Decrement
+        icon={&quot;minus&quot;}
+        onClick={handleDecrement}
+        disabled={count === 0}
+      /&gt;
+      &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;
+      &lt;Counter.Count /&gt;
+      &lt;Counter.Increment
+        icon={&quot;plus&quot;}
+        onClick={handleClickIncrement}
+        disabled={count === MAX_COUNT}
+      /&gt;
+    &lt;/Counter&gt;
+    &lt;button onClick={handleClickIncrement} disabled={count === MAX_COUNT}&gt;
+      Custom increment btn 1
+    &lt;/button&gt;
+  &lt;/&gt;
+);
+}
+
+export { Usage };</code></pre>
 <h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3></li>
 <li><p>给予更多的控制: 用户可以在钩子和JSX元素之间插入自己的逻辑，允许他修改默认组件的行为。</p>
 <p>  <img src="https://miro.medium.com/max/1400/1*hkyJ0eb2NRhX3pUoni0o-w.png" alt="https://miro.medium.com/max/1400/1*hkyJ0eb2NRhX3pUoni0o-w.png"></p>
@@ -307,275 +391,66 @@
 <p>这篇文章的灵感主要来自于Kent C. Dodds的惊人工作<br>如果你有兴趣了解更多关于每个模式的信息，请看他的<a href="https://kentcdodds.com/blog/" target="_blank" rel="noopener">博客</a>。我希望你觉得这篇文章有用。<br>谢谢你的阅读。</p>
 <p>更多内容请见 <a href="http://plainenglish.io/" target="_blank" rel="noopener">plainenglish.io</a></p>
 
-    
-    </div>
-    
-    <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/翻译/">#翻译</a></span>
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/React/">#React</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/2020/12/30/在Chrome查看持续连接和非持续连接/">在Chrome查看持续连接和非持续连接</a>
-            
-        </span>
-    </div>
-    
-</article>
+  <p><a class="classtest-link" href="/tags/React/">React</a>, <a class="classtest-link" href="/tags/翻译/">翻译</a> — Jun 2, 2021</p>
+  
 
 
-<div class="sharebox">
-    
-<div class="sharethis-inline-share-buttons"></div>
-<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5d8b75859a608b001285bd7b&amp;product=inline-share-buttons" async="async"></script>
+          <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+    </p></div>
 
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi">
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/mxggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://twitter.com/shuizheny" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
+        <svg class="twitter svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+      </a>
+      
+
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://stackoverflow.com/users/7354315/muggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="StackOverflow">
+        <svg class="stackoverflow svh-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Stack Overflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"/></svg>
+      </a>
+      
+
+    </div>
+  
 </div>
 
+        </div>
+      </div>
 
+    </div>
 
-<div class="comments">
-    <h3 class="title is-4">Comments</h3>
-    
-<script>
-    var disqus_config = function () {
-        this.page.url = 'https://shuizyang.com/2021/06/02/翻译-五个高级React模式/';
-        this.page.identifier = '2021/06/02/翻译-五个高级React模式/';
-        
-        this.language = 'en';
-        
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
     };
-    (function() {
-        var d = document, s = d.createElement('script');  
-        s.src = '//' + 'shuizyang' + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
 
-<div id="disqus_thread">
-    
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</div>
-
-    </div>
-</section>
-    <footer class="footer">
-    <div class="container">
-        <div class="columns content">
-            <div class="column is-narrow has-text-centered">
-                &copy; 2021 muggle-shuizy&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
-            </div>
-            <div class="column is-hidden-mobile"></div>
-
-            
-            <div class="column is-narrow">
-                <div class="columns is-mobile is-multiline is-centered">
-                
-                    
-                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/mxggle">
-                    
-                    GitHub
-                    
-                </a>
-                
-                    
-                <a class="column is-narrow has-text-black" title="Twitter" href="https://twitter.com/shuizheny">
-                    
-                    Twitter
-                    
-                </a>
-                
-                </div>
-            </div>
-            
-            
-        </div>
-    </div>
-</footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
-
-<!-- test if the browser is outdated -->
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // plugin function, place inside DOM ready function
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        })
-    });
-</script>
-
-<script>
-    window.FontAwesomeConfig = {
-        searchPseudoElements: true
-    }
-    moment.locale("en-AU");
-</script>
-
-
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<script>
-    MathJax.Hub.Config({
-        "HTML-CSS": {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-</script>
-
-    
-    
-    
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
-<script>
-    (function ($) {
-        $(document).ready(function () {
-            if (typeof($.fn.lightGallery) === 'function') {
-                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof($.fn.justifiedGallery) === 'function') {
-                $('.justified-gallery').justifiedGallery();
-            }
-        });
-    })(jQuery);
-</script>
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <style>
-        .hljs {
-            position: relative;
-        }
-
-        .hljs .clipboard-btn {
-            float: right;
-            color: #9a9a9a;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .hljs .clipboard-btn:hover {
-          color: #8a8a8a;
-        }
-
-        .hljs > .clipboard-btn {
-            display: none;
-            position: absolute;
-            right: 4px;
-            top: 4px;
-        }
-
-        .hljs:hover > .clipboard-btn {
-            display: inline;
-        }
-
-        .hljs > figcaption > .clipboard-btn {
-            margin-right: 4px;
-        }
-    </style>
-    <script>
-      $(document).ready(function () {
-        $('figure.hljs').each(function(i, figure) {
-          var codeId = 'code-' + i;
-          var code = figure.querySelector('.code');
-          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
-          code.id = codeId;
-          copyButton.addClass('clipboard-btn');
-          copyButton.attr('data-clipboard-target-id', codeId);
-
-          var figcaption = figure.querySelector('figcaption');
-
-          if (figcaption) {
-            figcaption.append(copyButton[0]);
-          } else {
-            figure.prepend(copyButton[0]);
-          }
-        })
-
-        var clipboard = new ClipboardJS('.clipboard-btn', {
-          target: function(trigger) {
-            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-          }
-        });
-        clipboard.on('success', function(e) {
-          e.clearSelection();
-        })
-      })
-    </script>
-
-    
-    
-
-    
-
-
-<script src="/js/script.js"></script>
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-mask"></div>
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js"></script>
-    
 </body>
+
 </html>
