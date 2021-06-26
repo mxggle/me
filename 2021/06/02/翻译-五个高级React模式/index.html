@@ -1,189 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang=en>
 <head><meta name="generator" content="Hexo 3.9.0">
-
-  <!-- Minima -->
-  <!-- Hexo theme created by @adisaktijrs -->
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-
-  
-  <title>翻译-五个高级React模式</title>
-  
-  <link rel="canonical" href="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/">
-  
-  <meta name="description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你">
-  
-  
-  <meta name="keywords" content="前端 代码 程序员 摄影 吉他 旅行 Dota2 数码控">
-  
-  <meta name="author" content="muggle-shuizy">
-  
-  <meta property="og:image" content="https://shuizyang.comundefined">
-  
-  <meta property="og:site_name" content="muggle‘s blog">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="翻译-五个高级React模式">
-  
-  <meta property="og:description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你">
-  
-  <meta property="og:url" content="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="翻译-五个高级React模式">
-  
-  <meta name="twitter:description" content="原文： https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6  5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你">
-  
-  
-  <meta name="twitter:image" content="https://shuizyang.comundefined">
-  
-  <meta name="twitter:url" content="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Preload fonts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/skeleton.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  <link rel="stylesheet" href="/css/prism-dark.css">
-  <link rel="stylesheet" href="/css/prism-line-numbers.css">
-  <!-- User css -->
-  
-  <link rel="stylesheet" href="/css/user.css">
-  
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style>
-  a:not(.icon) {
-    text-decoration-color: #0FA0CE;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      #0FA0CE 50%
-    );
-  }
-  blockquote {
-    border-left: 8px solid #0FA0CE;
-  }
-  .nanobar .bar {
-    background: #0FA0CE;
-  }
-  .button.button-primary:hover,
-  button.button-primary:hover,
-  input[type="submit"].button-primary:hover,
-  input[type="reset"].button-primary:hover,
-  input[type="button"].button-primary:hover,
-  .button.button-primary:focus,
-  button.button-primary:focus,
-  input[type="submit"].button-primary:focus,
-  input[type="reset"].button-primary:focus,
-  input[type="button"].button-primary:focus {
-    background-color: #0FA0CE;
-    border-color: #0FA0CE;
-  }
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  textarea:focus,
-  select:focus {
-    border: 1px solid #0FA0CE;
-  }
-</style>
-
-  <!-- Google Analytics (With Privacy Settings On)
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="原文地址：5 Advanced React Patterns 原文作者：Alexis Regnaud  限于个人能力，如有错漏之处，烦请不吝赐教。 本文概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你可能已经问过自己以下问题之一  我如何建立一个可重复使用的组件以适应不同的使用情况？ 我如何建立一个具有简单API的组件，使其">
+<meta name="keywords" content="翻译,React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="翻译-五个高级React模式">
+<meta property="og:url" content="https://shuizyang.com/2021/06/02/翻译-五个高级React模式/index.html">
+<meta property="og:site_name" content="muggle‘s blog">
+<meta property="og:description" content="原文地址：5 Advanced React Patterns 原文作者：Alexis Regnaud  限于个人能力，如有错漏之处，烦请不吝赐教。 本文概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你可能已经问过自己以下问题之一  我如何建立一个可重复使用的组件以适应不同的使用情况？ 我如何建立一个具有简单API的组件，使其">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/598bc664b81e4fe0912d9e94837c1425~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a14d83744d34635ad3a81f68fda51b7~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bc3be15a37142b4a647e2c0e5c28ba1~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fea100aec804093815add4ccfb35afe~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/889e67cf345b4d26a7a21bae9ef10d89~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b96eecf08388447c884e9280d09d0b6e~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94ca345ac5114168a94d83b2ab0e7440~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bdc0d0196d74e4aa9421cfd8a8de6c8~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fbef612a5e34ce0b15de86d11d5421f~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1ec62fdd82b45c2bf0c69dadfe9e040~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a7e677c782e4ab7a22b48ff1ad76d3d~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://miro.medium.com/max/1400/1*auZca0g2eg1Cv7THl6df6g.png">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78b2802a2c2146f29acdf60aab99a66b~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1d4a2d6e2d448368cb3877a905ab6c2~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e8312b508954342a1f1f2ef2114f5f2~tplv-k3u1fbpfcp-watermark.image">
+<meta property="og:updated_time" content="2021-06-26T09:37:01.261Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="翻译-五个高级React模式">
+<meta name="twitter:description" content="原文地址：5 Advanced React Patterns 原文作者：Alexis Regnaud  限于个人能力，如有错漏之处，烦请不吝赐教。 本文概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。  像每个React开发者一样，你可能已经问过自己以下问题之一  我如何建立一个可重复使用的组件以适应不同的使用情况？ 我如何建立一个具有简单API的组件，使其">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/598bc664b81e4fe0912d9e94837c1425~tplv-k3u1fbpfcp-watermark.image">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>翻译-五个高级React模式</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
 </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post " href="/2021/06/23/以demo的方式理解React-PureComponent-React-Component-函数式组件的区别-1/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post " href="/2020/12/30/在Chrome查看持续连接和非持续连接/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&text=翻译-五个高级React模式"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&is_video=false&description=翻译-五个高级React模式"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=翻译-五个高级React模式&body=Check out this article: https://shuizyang.com/2021/06/02/翻译-五个高级React模式/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&name=翻译-五个高级React模式&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&t=翻译-五个高级React模式"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
-        <div class="row">
-  <div class="two columns" style="max-width: 50px">
-    <h1 class="mt-2 mode">
-      <div onclick="setDarkMode(true)" id="darkBtn">🌑</div>
-      <div onclick="setDarkMode(false)" id="lightBtn" class="hidden">☀️</div>
-      <script>
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
-    </h1>
-  </div>
-
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      Hi Folks.
-    </h1>
-  </div>
-
-  <div class="twelve columns">
-    <div class="row">
-      <div class="nine columns left">
-        <a href="/">Home</a>
-        
-          
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:muggle6594@gmail.com" target="_blank" class="ml">Email</a>
-          
-        
-      </div>
     </div>
-    <hr style="margin-bottom: 2.6rem">
-  </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-复合组件模式（Compound-Components-Pattern）"><span class="toc-number">1.</span> <span class="toc-text">1. 复合组件模式（Compound Components Pattern）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">1.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-number">1.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点"><span class="toc-number">1.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准"><span class="toc-number">1.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库"><span class="toc-number">1.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-受控属性模式"><span class="toc-number">2.</span> <span class="toc-text">2. 受控属性模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-1"><span class="toc-number">2.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-1"><span class="toc-number">2.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-1"><span class="toc-number">2.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-1"><span class="toc-number">2.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-1"><span class="toc-number">2.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-自定义钩子模式"><span class="toc-number">3.</span> <span class="toc-text">3. 自定义钩子模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-2"><span class="toc-number">3.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-2"><span class="toc-number">3.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-2"><span class="toc-number">3.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-2"><span class="toc-number">3.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-2"><span class="toc-number">3.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Props-getter-模式"><span class="toc-number">4.</span> <span class="toc-text">4. Props getter 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-3"><span class="toc-number">4.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-3"><span class="toc-number">4.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-3"><span class="toc-number">4.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-3"><span class="toc-number">4.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-3"><span class="toc-number">4.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-State-reducer-模式"><span class="toc-number">5.</span> <span class="toc-text">5. State reducer 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-4"><span class="toc-number">5.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-4"><span class="toc-number">5.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-4"><span class="toc-number">5.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-4"><span class="toc-number">5.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-4"><span class="toc-number">5.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </span>
 </div>
 
-        <div class="trans">
-            <h2>翻译-五个高级React模式</h2>
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        翻译-五个高级React模式
+    </h1>
 
-  <p><img src="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4" alt="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4"></p>
-<blockquote>
-<p>原文： <a href="https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6" target="_blank" rel="noopener">https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6</a></p>
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">muggle-shuizy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-06-02T07:34:18.700Z" itemprop="datePublished">2021-06-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/React/">React</a>, <a class="tag-link" href="/tags/翻译/">翻译</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
+<p>原文地址：<a href="https://javascript.plainenglish.io/5-advanced-react-patterns-a6b7624267a6" target="_blank" rel="noopener">5 Advanced React Patterns</a></p>
+<p>原文作者：Alexis Regnaud</p>
 </blockquote>
-<p>5种高级React模式概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。</p>
-<a id="more"></a>
-<p><img src="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4" alt="https://miro.medium.com/max/10368/0*XRKqXW6JUjwZc2r4"><br>像每个React开发者一样，你可能已经问过自己以下问题之一。</p>
+<p><strong>限于个人能力，如有错漏之处，烦请不吝赐教。</strong></p>
+<p>本文概述了5种现代高级React模式，包括集成代码、优点和缺点，以及在公共库中的具体用法。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/598bc664b81e4fe0912d9e94837c1425~tplv-k3u1fbpfcp-watermark.image" alt="Photo by Ferenc Almasi on Unsplash"></p>
+<p>像每个React开发者一样，你可能已经问过自己以下问题之一</p>
 <ul>
 <li>我如何建立一个<strong>可重复使用</strong>的组件以适应不同的使用情况？</li>
 <li>我如何建立一个具有<strong>简单API</strong>的组件，使其易于使用？</li>
@@ -192,265 +178,268 @@
 <p>这些反复出现的问题催生了整个React社区的一些高级模式的出现</p>
 <p>在这篇文章中，我们将看到5种不同模式的概述。为了便于比较，我们将对所有这些模式使用一个相同的结构。</p>
 <p>我们将从一个小的介绍开始，然后是一个真实的代码例子（基于同一个简单的<code>Counter</code>组件）。</p>
-<p><img src="https://miro.medium.com/max/392/1*_miRfZkNA8YkhIBSCywBdQ.png" alt="https://miro.medium.com/max/392/1*_miRfZkNA8YkhIBSCywBdQ.png"></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a14d83744d34635ad3a81f68fda51b7~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <blockquote>
 <p>所有的源代码都可以在这个github仓库中获得：<a href="https://github.com/alex83130/advanced-react-patterns%E3%80%82" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns。</a></p>
 </blockquote>
-<p>我们将列出优点和缺点，然后在一个名为 “标准 “的部分中定义两个因素。</p>
+<p>我们将列出优点和缺点，然后在一个名为 “标准”的部分中定义两个因素。</p>
 <ul>
 <li><a href="https://kentcdodds.com/blog/inversion-of-control" target="_blank" rel="noopener">反转控制</a>: 你的组件给用户提供的灵活性和控制等级</li>
 <li>实施的复杂性: 你和用户实现该模式的难度。</li>
 </ul>
 <p>最后，我们将找一些公共库在生产环境中使用该模式的例子</p>
 <blockquote>
-<p>在这篇文章中，我们将考虑一个React开发者（你）为其他开发者构建一个组件的情况。因此，”用户 “这个角色直接指的是这些开发者（而不是使用你的网站/应用程序的最终用户）。</p>
+<p>在这篇文章中，我们将考虑一个React开发者（你）为其他开发者构建一个组件的情况。因此，”用户”这个角色直接指的是这些开发者（而不是使用你的网站/应用程序的最终用户）。</p>
 </blockquote>
 <h2 id="1-复合组件模式（Compound-Components-Pattern）"><a href="#1-复合组件模式（Compound-Components-Pattern）" class="headerlink" title="1. 复合组件模式（Compound Components Pattern）"></a>1. 复合组件模式（Compound Components Pattern）</h2><p>这种模式允许创建富有表现力和声明性的组件，避免非必要的<a href="https://kentcdodds.com/blog/prop-drilling" target="_blank" rel="noopener">prop drilling</a>。如果你想让你的组件更有可塑性，有更好的关注点分离和易理解的API，你应该考虑使用这种模式。</p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/compound-component" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/compound-component</a></p>
-<pre><code class="jsx">import React from &quot;react&quot;;
-import { Counter } from &quot;./Counter&quot;;
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/compound-component" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/compound-component</a></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Counter &#125; <span class="keyword">from</span> <span class="string">"./Counter"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Usage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> handleChangeCounter = <span class="function">(<span class="params">count</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"count"</span>, count);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Counter onChange=&#123;handleChangeCounter&#125;&gt;</span><br><span class="line">      &lt;Counter.Decrement icon=<span class="string">"minus"</span> /&gt;</span><br><span class="line">      &lt;Counter.Label&gt;Counter&lt;<span class="regexp">/Counter.Label&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Counter.Count max=&#123;10&#125; /</span>&gt;</span><br><span class="line">      &lt;Counter.Increment icon=<span class="string">"plus"</span> /&gt;</span><br><span class="line">    &lt;<span class="regexp">/Counter&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export &#123; Usage &#125;;</span></span><br></pre></td></tr></table></figure>
 
-function Usage() {
-  const handleChangeCounter = (count) =&gt; {
-    console.log(&quot;count&quot;, count);
-  };
-
-  return (
-    &lt;Counter onChange={handleChangeCounter}&gt;
-      &lt;Counter.Decrement icon=&quot;minus&quot; /&gt;
-      &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;
-      &lt;Counter.Count max={10} /&gt;
-      &lt;Counter.Increment icon=&quot;plus&quot; /&gt;
-    &lt;/Counter&gt;
-  );
-}
-
-export { Usage };</code></pre>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
 <li>减少了API的复杂性：与其把所有的<code>props</code>都塞进一个巨大的父组件中，然后再把这些<code>props</code>钻到子UI组件中，不如在这里把每个<code>props</code>都连接到各自最有意义的子组件上。</li>
 </ul>
-<p><img src="https://miro.medium.com/max/1400/1*fNxmemv7z_s7M9n1xOyxPg.png" alt="https://miro.medium.com/max/1400/1*fNxmemv7z_s7M9n1xOyxPg.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bc3be15a37142b4a647e2c0e5c28ba1~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <ul>
 <li>灵活的标记结构：你的组件有很大的UI灵活性，允许从一个单一的组件创建各种情况。例如，用户可以改变子组件的顺序或定义哪个组件应该被显示。</li>
 </ul>
-<p><img src="https://miro.medium.com/max/1400/1*X2NPGy2TRJ1MsZbkR7VACA.png" alt="https://miro.medium.com/max/1400/1*X2NPGy2TRJ1MsZbkR7VACA.png"></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fea100aec804093815add4ccfb35afe~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <ul>
-<li><p>关注点分离：大部分的逻辑都包含在主<code>Counter</code>组件中，然后用<code>React.Context</code>来分享所有子组件的状态和事件处理。我们得到了一个明确的责任划分。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*NxH5i3ugYXxlPR4NO9q_0Q.png" alt="https://miro.medium.com/max/1400/1*NxH5i3ugYXxlPR4NO9q_0Q.png"></p>
+<li>关注点分离：大部分的逻辑都包含在主<code>Counter</code>组件中，然后用<code>React.Context</code>来分享所有子组件的状态和事件处理。我们得到了一个明确的责任划分。</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/889e67cf345b4d26a7a21bae9ef10d89~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
 <li><p>太高的UI灵活性：拥有灵活性的同时，也有可能引发意想不到的行为（把一个不需要的组件的子组件放进去，把子组件的顺序弄乱，忘记包含一个必须的子组件）</p>
 <p>  根据你想要用户如何使用你的组件，你可能不希望有那么多的灵活性。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*5gRvmOA-H4DuDOIbGb25CA.png" alt="https://miro.medium.com/max/1400/1*5gRvmOA-H4DuDOIbGb25CA.png"></p>
-</li>
-<li><p>更重的JSX：应用这种模式会增加JSX行的数量，特别是当你使用像<code>ESLint</code>这样的代码检测工具或类似<code>Prettier</code>这样的代码格式化工具时<br>在单个组件的规模上，这似乎不是什么大问题，但当你从全局来看时，肯定会产生巨大的差异。</p>
-<p>  <img src="https://miro.medium.com/max/4736/1*Wc8urvuBB8fnQQhVMLd88w.png" alt="https://miro.medium.com/max/4736/1*Wc8urvuBB8fnQQhVMLd88w.png"></p>
-<h3 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h3></li>
-<li><p>反转控制：1/4</p>
-</li>
-<li><p>实施的复杂性：1/4</p>
-<h3 id="使用此模式的公共库"><a href="#使用此模式的公共库" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3></li>
-<li><p><a href="https://react-bootstrap.github.io/components/dropdowns/" target="_blank" rel="noopener">React Bootstrap</a></p>
-</li>
-<li><p><a href="https://reach.tech/accordion" target="_blank" rel="noopener">Reach UI</a></p>
-<h2 id="2-受控属性模式"><a href="#2-受控属性模式" class="headerlink" title="2. 受控属性模式"></a>2. 受控属性模式</h2><p>这种模式将你的组件转变为一个受控组件。外部状态作为 “单一事实源 “被消耗，允许用户插入自定义逻辑，修改默认组件的行为。</p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/control-props" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/control-props</a></p>
-<pre><code class="jsx">import React, { useState } from &quot;react&quot;;
-import { Counter } from &quot;./Counter&quot;;
-
-function Usage() {
-const [count, setCount] = useState(0);
-
-const handleChangeCounter = (newCount) =&gt; {
-  setCount(newCount);
-};
-return (
-  &lt;Counter value={count} onChange={handleChangeCounter}&gt;
-    &lt;Counter.Decrement icon={&quot;minus&quot;} /&gt;
-    &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;
-    &lt;Counter.Count max={10} /&gt;
-    &lt;Counter.Increment icon={&quot;plus&quot;} /&gt;
-  &lt;/Counter&gt;
-);
-}
-
-export { Usage };</code></pre>
-<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3></li>
-<li><p>给予更多的控制：由于主状态暴露在你的组件之外，用户可以控制它，因此可以直接影响你的组件。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*8bmVDqp_KOg347dT_600Pw.png" alt="https://miro.medium.com/max/1400/1*8bmVDqp_KOg347dT_600Pw.png"></p>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3></li>
-<li><p>实施的复杂性: 之前，在一个地方（<code>JSX</code>）的一个集成就足以使你的组件工作。现在，它将分散在3个不同的地方（<code>JSX</code> / <code>useState</code> / <code>handleChange</code>）。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*_UoRzY4lRe4WtFvJl8BtTg.png" alt="https://miro.medium.com/max/1400/1*_UoRzY4lRe4WtFvJl8BtTg.png"></p>
-<h3 id="标准-1"><a href="#标准-1" class="headerlink" title="标准"></a>标准</h3><ul>
-<li><p>反转控制：2/4</p>
-</li>
-<li><p>实施的复杂性：1/4</p>
-<h3 id="使用此模式的公共库-1"><a href="#使用此模式的公共库-1" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3></li>
-<li><p><a href="https://material-ui.com/components/rating/#rating" target="_blank" rel="noopener">Material UI</a></p>
-<h2 id="3-自定义钩子模式"><a href="#3-自定义钩子模式" class="headerlink" title="3. 自定义钩子模式"></a>3. 自定义钩子模式</h2><p>让我们在 “控制反转 “中更进一步：主要的逻辑现在被转移到一个自定义的钩子中。这个钩子可以被用户访问，并且暴露了几个内部逻辑（状态、处理程序），允许他对你的组件有更好的控制。</p>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/custom-hooks" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/custom-hooks</a></p>
-<pre><code class="jsx">import React from &quot;react&quot;;
-import { Counter } from &quot;./Counter&quot;;
-import { useCounter } from &quot;./useCounter&quot;;
-
-function Usage() {
-const { count, handleIncrement, handleDecrement } = useCounter(0);
-const MAX_COUNT = 10;
-
-const handleClickIncrement = () =&gt; {
-  //Put your custom logic
-  if (count &lt; MAX_COUNT) {
-    handleIncrement();
-  }
-};
-
-return (
-  &lt;&gt;
-    &lt;Counter value={count}&gt;
-      &lt;Counter.Decrement
-        icon={&quot;minus&quot;}
-        onClick={handleDecrement}
-        disabled={count === 0}
-      /&gt;
-      &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;
-      &lt;Counter.Count /&gt;
-      &lt;Counter.Increment
-        icon={&quot;plus&quot;}
-        onClick={handleClickIncrement}
-        disabled={count === MAX_COUNT}
-      /&gt;
-    &lt;/Counter&gt;
-    &lt;button onClick={handleClickIncrement} disabled={count === MAX_COUNT}&gt;
-      Custom increment btn 1
-    &lt;/button&gt;
-  &lt;/&gt;
-);
-}
-
-export { Usage };</code></pre>
-<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3></li>
-<li><p>给予更多的控制: 用户可以在钩子和JSX元素之间插入自己的逻辑，允许他修改默认组件的行为。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*hkyJ0eb2NRhX3pUoni0o-w.png" alt="https://miro.medium.com/max/1400/1*hkyJ0eb2NRhX3pUoni0o-w.png"></p>
-<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li><p>实施的复杂性：由于逻辑部分与渲染部分是分开的，所以必须由用户将两者联系起来。要正确地实现它，需要对你的组件的工作方式有一个很好的理解。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*Sxgs_af830xmllTwgW-HKw.png" alt="https://miro.medium.com/max/1400/1*Sxgs_af830xmllTwgW-HKw.png"></p>
-<h3 id="标准-2"><a href="#标准-2" class="headerlink" title="标准"></a>标准</h3></li>
-<li><p>反转控制：2/4</p>
-</li>
-<li><p>实施的复杂性：2/4</p>
-<h3 id="使用此模式的公共库-2"><a href="#使用此模式的公共库-2" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3></li>
-<li><p><a href="https://react-table.tanstack.com/docs/examples/basic" target="_blank" rel="noopener">React table</a></p>
-</li>
-<li><p><a href="https://react-hook-form.com/api" target="_blank" rel="noopener">React hook form</a></p>
 </li>
 </ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b96eecf08388447c884e9280d09d0b6e~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<ul>
+<li>更重的JSX：应用这种模式会增加JSX行的数量，特别是当你使用像<code>ESLint</code>这样的代码检测工具或类似<code>Prettier</code>这样的代码格式化工具时<br>在单个组件的规模上，这似乎不是什么大问题，但当你从全局来看时，肯定会产生巨大的差异。</li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94ca345ac5114168a94d83b2ab0e7440~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h3><ul>
+<li>反转控制：1/4</li>
+<li>实施的复杂性：1/4</li>
+</ul>
+<h3 id="使用此模式的公共库"><a href="#使用此模式的公共库" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3><ul>
+<li><a href="https://react-bootstrap.github.io/components/dropdowns/" target="_blank" rel="noopener">React Bootstrap</a></li>
+<li><a href="https://reach.tech/accordion" target="_blank" rel="noopener">Reach UI</a></li>
+</ul>
+<h2 id="2-受控属性模式"><a href="#2-受控属性模式" class="headerlink" title="2. 受控属性模式"></a>2. 受控属性模式</h2><p>这种模式将你的组件转变为一个受控组件。外部状态作为 “单一事实源 “被消耗，允许用户插入自定义逻辑，修改默认组件的行为。</p>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/control-props" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/control-props</a></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Counter &#125; <span class="keyword">from</span> <span class="string">"./Counter"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Usage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleChangeCounter = <span class="function">(<span class="params">newCount</span>) =&gt;</span> &#123;</span><br><span class="line">    setCount(newCount);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Counter value=&#123;count&#125; onChange=&#123;handleChangeCounter&#125;&gt;</span><br><span class="line">      &lt;Counter.Decrement icon=&#123;<span class="string">"minus"</span>&#125; /&gt;</span><br><span class="line">      &lt;Counter.Label&gt;Counter&lt;<span class="regexp">/Counter.Label&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Counter.Count max=&#123;10&#125; /</span>&gt;</span><br><span class="line">      &lt;Counter.Increment icon=&#123;<span class="string">"plus"</span>&#125; /&gt;</span><br><span class="line">    &lt;<span class="regexp">/Counter&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export &#123; Usage &#125;;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>给予更多的控制：由于主状态暴露在你的组件之外，用户可以控制它，因此可以直接影响你的组件。</li>
+</ul>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bdc0d0196d74e4aa9421cfd8a8de6c8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>实施的复杂性: 之前，在一个地方（<code>JSX</code>）的一个集成就足以使你的组件工作。现在，它将分散在3个不同的地方（<code>JSX</code> / <code>useState</code> / <code>handleChange</code>）。<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fbef612a5e34ce0b15de86d11d5421f~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></li>
+</ul>
+<h3 id="标准-1"><a href="#标准-1" class="headerlink" title="标准"></a>标准</h3><ul>
+<li>反转控制：2/4</li>
+<li>实施的复杂性：1/4</li>
+</ul>
+<h3 id="使用此模式的公共库-1"><a href="#使用此模式的公共库-1" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3><ul>
+<li><a href="https://material-ui.com/components/rating/#rating" target="_blank" rel="noopener">Material UI</a></li>
+</ul>
+<h2 id="3-自定义钩子模式"><a href="#3-自定义钩子模式" class="headerlink" title="3. 自定义钩子模式"></a>3. 自定义钩子模式</h2><p>让我们在 “控制反转 “中更进一步：主要的逻辑现在被转移到一个自定义的钩子中。这个钩子可以被用户访问，并且暴露了几个内部逻辑（状态、处理程序），允许他对你的组件有更好的控制。</p>
+<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/custom-hooks" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/custom-hooks</a></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Counter &#125; <span class="keyword">from</span> <span class="string">"./Counter"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useCounter &#125; <span class="keyword">from</span> <span class="string">"./useCounter"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Usage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; count, handleIncrement, handleDecrement &#125; = useCounter(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> MAX_COUNT = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleClickIncrement = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//Put your custom logic</span></span><br><span class="line">    <span class="keyword">if</span> (count &lt; MAX_COUNT) &#123;</span><br><span class="line">      handleIncrement();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Counter value=&#123;count&#125;&gt;</span><br><span class="line">        &lt;Counter.Decrement</span><br><span class="line">          icon=&#123;<span class="string">"minus"</span>&#125;</span><br><span class="line">          onClick=&#123;handleDecrement&#125;</span><br><span class="line">          disabled=&#123;count === <span class="number">0</span>&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;Counter.Label&gt;Counter&lt;<span class="regexp">/Counter.Label&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Counter.Count /</span>&gt;</span><br><span class="line">        &lt;Counter.Increment</span><br><span class="line">          icon=&#123;<span class="string">"plus"</span>&#125;</span><br><span class="line">          onClick=&#123;handleClickIncrement&#125;</span><br><span class="line">          disabled=&#123;count === MAX_COUNT&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;<span class="regexp">/Counter&gt;</span></span><br><span class="line"><span class="regexp">      &lt;button onClick=&#123;handleClickIncrement&#125; disabled=&#123;count === MAX_COUNT&#125;&gt;</span></span><br><span class="line"><span class="regexp">        Custom increment btn 1</span></span><br><span class="line"><span class="regexp">      &lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export &#123; Usage &#125;;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>给予更多的控制: 用户可以在钩子和JSX元素之间插入自己的逻辑，允许他修改默认组件的行为。<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1ec62fdd82b45c2bf0c69dadfe9e040~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></li>
+</ul>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>实施的复杂性：由于逻辑部分与渲染部分是分开的，所以必须由用户将两者联系起来。要正确地实现它，需要对你的组件的工作方式有一个很好的理解。<br><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a7e677c782e4ab7a22b48ff1ad76d3d~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></li>
+</ul>
+<h3 id="标准-2"><a href="#标准-2" class="headerlink" title="标准"></a>标准</h3><ul>
+<li>反转控制：2/4</li>
+<li>实施的复杂性：2/4</li>
+</ul>
+<h3 id="使用此模式的公共库-2"><a href="#使用此模式的公共库-2" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3><ul>
+<li><a href="https://react-table.tanstack.com/docs/examples/basic" target="_blank" rel="noopener">React table</a></li>
+<li><a href="https://react-hook-form.com/api" target="_blank" rel="noopener">React hook form</a></li>
+</ul>
 <h2 id="4-Props-getter-模式"><a href="#4-Props-getter-模式" class="headerlink" title="4. Props getter 模式"></a>4. Props getter 模式</h2><p>自定义钩子模式提供了很好的控制，但也使你的组件更难集成，因为用户必须处理大量的组件本地钩子的<code>props</code>，并在他那边重新创建逻辑。Props Getters模式试图掩盖这种复杂性。我们不暴露本地<code>props</code>，而是提供一个<code>props getters</code>  的短名单。一个<code>getter</code>是一个返回许多<code>props</code>的函数，它有一个有意义的名字，允许用户自然地将其链接到正确的JSX元素。</p>
-<h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3></li>
-<li><p>易用性：提供一种简单的方式来整合你的组件，复杂性被隐藏起来，用户只需将正确的getter连接到正确的JSX元素。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*auZca0g2eg1Cv7THl6df6g.png" alt="https://miro.medium.com/max/1400/1*auZca0g2eg1Cv7THl6df6g.png"></p>
-</li>
-<li><p>灵活性： 用户仍然有可能重载<code>getters</code>中的<code>props</code>，以适应他的具体情况。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*59EpcnFx_GkrJ3NQ-Zg3CA.png" alt="https://miro.medium.com/max/1400/1*59EpcnFx_GkrJ3NQ-Zg3CA.png"></p>
-<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3></li>
-<li><p>缺少可见性： <code>getters</code> 带来的抽象性使你的组件更容易集成，但也更不透明和 “魔法”。为了正确地覆盖你的组件，用户必须知道<code>getters</code>所暴露的<code>props</code>列表，以及如果其中一个<code>props</code>被改变所带来的内部逻辑影响。</p>
-<h3 id="标准-3"><a href="#标准-3" class="headerlink" title="标准"></a>标准</h3></li>
-<li><p>反转控制：3/4</p>
-</li>
-<li><p>集成的复杂性：3/4</p>
-<h3 id="使用此模式的公共库-3"><a href="#使用此模式的公共库-3" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3></li>
-<li><p><a href="https://react-table.tanstack.com/docs/examples/basic" target="_blank" rel="noopener">React table</a></p>
-</li>
-<li><p><a href="https://github.com/downshift-js/downshift#usage" target="_blank" rel="noopener">Downshift</a></p>
-</li>
+<h3 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/props-getters" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/props-getters</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import React from &quot;react&quot;;</span><br><span class="line">import &#123; Counter &#125; from &quot;./Counter&quot;;</span><br><span class="line">import &#123; useCounter &#125; from &quot;./useCounter&quot;;</span><br><span class="line"></span><br><span class="line">const MAX_COUNT = 10;</span><br><span class="line"></span><br><span class="line">function Usage() &#123;</span><br><span class="line">  const &#123;</span><br><span class="line">    count,</span><br><span class="line">    getCounterProps,</span><br><span class="line">    getIncrementProps,</span><br><span class="line">    getDecrementProps</span><br><span class="line">  &#125; = useCounter(&#123;</span><br><span class="line">    initial: 0,</span><br><span class="line">    max: MAX_COUNT</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  const handleBtn1Clicked = () =&gt; &#123;</span><br><span class="line">    console.log(&quot;btn 1 clicked&quot;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Counter &#123;...getCounterProps()&#125;&gt;</span><br><span class="line">        &lt;Counter.Decrement icon=&#123;&quot;minus&quot;&#125; &#123;...getDecrementProps()&#125; /&gt;</span><br><span class="line">        &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;</span><br><span class="line">        &lt;Counter.Count /&gt;</span><br><span class="line">        &lt;Counter.Increment icon=&#123;&quot;plus&quot;&#125; &#123;...getIncrementProps()&#125; /&gt;</span><br><span class="line">      &lt;/Counter&gt;</span><br><span class="line">      &lt;button &#123;...getIncrementProps(&#123; onClick: handleBtn1Clicked &#125;)&#125;&gt;</span><br><span class="line">        Custom increment btn 1</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;button &#123;...getIncrementProps(&#123; disabled: count &gt; MAX_COUNT - 2 &#125;)&#125;&gt;</span><br><span class="line">        Custom increment btn 2</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; Usage &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>易用性：提供一种简单的方式来整合你的组件，复杂性被隐藏起来，用户只需将正确的getter连接到正确的JSX元素。</li>
+</ul>
+<p><img src="https://miro.medium.com/max/1400/1*auZca0g2eg1Cv7THl6df6g.png" alt="https://miro.medium.com/max/1400/1*auZca0g2eg1Cv7THl6df6g.png"></p>
+<ul>
+<li>灵活性： 用户仍然有可能重载<code>getters</code>中的<code>props</code>，以适应他的具体情况。<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78b2802a2c2146f29acdf60aab99a66b~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></li>
+</ul>
+<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>缺少可见性： <code>getters</code> 带来的抽象性使你的组件更容易集成，但也更不透明和 “魔法”。为了正确地覆盖你的组件，用户必须知道<code>getters</code>所暴露的<code>props</code>列表，以及如果其中一个<code>props</code>被改变所带来的内部逻辑影响。</li>
+</ul>
+<h3 id="标准-3"><a href="#标准-3" class="headerlink" title="标准"></a>标准</h3><ul>
+<li>反转控制：3/4</li>
+<li>集成的复杂性：3/4</li>
+</ul>
+<h3 id="使用此模式的公共库-3"><a href="#使用此模式的公共库-3" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3><ul>
+<li><a href="https://react-table.tanstack.com/docs/examples/basic" target="_blank" rel="noopener">React table</a></li>
+<li><a href="https://github.com/downshift-js/downshift#usage" target="_blank" rel="noopener">Downshift</a></li>
 </ul>
 <h2 id="5-State-reducer-模式"><a href="#5-State-reducer-模式" class="headerlink" title="5. State reducer 模式"></a>5. State reducer 模式</h2><p>在控制的反转方面是最先进的模式。它为用户提供了一种先进的方式来改变你的组件的内部操作方式。</p>
 <p>代码类似于自定义钩子模式，但除此之外，用户还定义了一个被传递给钩子的<code>reducer</code>。这个<code>reducer</code>将重载你的组件的任何内部动作。</p>
-<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/state-reducer" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/state-reducer</a></p>
-<p><a href="https://gist.githubusercontent.com/alex83130/700be988affa39cc1d5c9391f23f7fad/raw/bde24a6394c728d2d424bc31ccbf26cdf388df43/Usage.js" target="_blank" rel="noopener"></a></p>
+<h3 id="例子-4"><a href="#例子-4" class="headerlink" title="例子"></a>例子</h3><p>Github: <a href="https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/state-reducer" target="_blank" rel="noopener">https://github.com/alex83130/advanced-react-patterns/tree/main/src/patterns/state-reducer</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import React from &quot;react&quot;;</span><br><span class="line">import &#123; Counter &#125; from &quot;./Counter&quot;;</span><br><span class="line">import &#123; useCounter &#125; from &quot;./useCounter&quot;;</span><br><span class="line"></span><br><span class="line">const MAX_COUNT = 10;</span><br><span class="line">function Usage() &#123;</span><br><span class="line">  const reducer = (state, action) =&gt; &#123;</span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">      case &quot;decrement&quot;:</span><br><span class="line">        return &#123;</span><br><span class="line">          count: Math.max(0, state.count - 2) //The decrement delta was changed for 2 (Default is 1)</span><br><span class="line">        &#125;;</span><br><span class="line">      default:</span><br><span class="line">        return useCounter.reducer(state, action);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  const &#123; count, handleDecrement, handleIncrement &#125; = useCounter(</span><br><span class="line">    &#123; initial: 0, max: 10 &#125;,</span><br><span class="line">    reducer</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Counter value=&#123;count&#125;&gt;</span><br><span class="line">        &lt;Counter.Decrement icon=&#123;&quot;minus&quot;&#125; onClick=&#123;handleDecrement&#125; /&gt;</span><br><span class="line">        &lt;Counter.Label&gt;Counter&lt;/Counter.Label&gt;</span><br><span class="line">        &lt;Counter.Count /&gt;</span><br><span class="line">        &lt;Counter.Increment icon=&#123;&quot;plus&quot;&#125; onClick=&#123;handleIncrement&#125; /&gt;</span><br><span class="line">      &lt;/Counter&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleIncrement&#125; disabled=&#123;count === MAX_COUNT&#125;&gt;</span><br><span class="line">        Custom increment btn 1</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; Usage &#125;;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>在这个例子中，我们结合了State reducer模式和Custom hook模式，但是你也可以把它和Compound components模式一起使用，直接把reducer传递给主组件Counter。</p>
 </blockquote>
-<h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3></li>
-<li><p>给予更多的控制：在最复杂的情况下，使用<code>state reducers</code>是把控制权留给用户的最好方法。你所有的内部组件的动作现在都可以从外部访问，并且可以被重写。</p>
-<p>  <img src="https://miro.medium.com/max/1400/1*0hLIgVUrAN1ld9Yp3DrJQw.png" alt="https://miro.medium.com/max/1400/1*0hLIgVUrAN1ld9Yp3DrJQw.png"></p>
-<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3></li>
-<li><p>实施的复杂性：这种模式的实现肯定是最复杂的，无论是对你还是对用户。</p>
-</li>
-<li><p>缺少可见性：由于任何<code>reducer</code>的动作都可以被改变，因此需要很好地理解组件的内部逻辑。</p>
-<h3 id="标准-4"><a href="#标准-4" class="headerlink" title="标准"></a>标准</h3></li>
-<li><p>反转控制：4/4</p>
-</li>
-<li><p>集成的复杂性：4/4</p>
-<h3 id="使用此模式的公共库-4"><a href="#使用此模式的公共库-4" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3></li>
-<li><p>Downshift</p>
-</li>
+<h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>给予更多的控制：在最复杂的情况下，使用<code>state reducers</code>是把控制权留给用户的最好方法。你所有的内部组件的动作现在都可以从外部访问，并且可以被重写。</li>
 </ul>
-</li>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1d4a2d6e2d448368cb3877a905ab6c2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>实施的复杂性：这种模式的实现肯定是最复杂的，无论是对你还是对用户。</li>
+<li>缺少可见性：由于任何<code>reducer</code>的动作都可以被改变，因此需要很好地理解组件的内部逻辑。</li>
+</ul>
+<h3 id="标准-4"><a href="#标准-4" class="headerlink" title="标准"></a>标准</h3><ul>
+<li>反转控制：4/4</li>
+<li>集成的复杂性：4/4</li>
+</ul>
+<h3 id="使用此模式的公共库-4"><a href="#使用此模式的公共库-4" class="headerlink" title="使用此模式的公共库"></a>使用此模式的公共库</h3><ul>
+<li><a href="https://github.com/downshift-js/downshift#statereducer" target="_blank" rel="noopener">Downshift</a></li>
 </ul>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过这5个高级React模式，我们看到了利用 “控制反转 “概念的不同方式。它们给你提供了一个强大的方法来创建灵活和适应性强的组件。<br>然而，我们都知道这句著名的谚语：”能力越大责任越大”，你越是把控制权转移给用户，你的组件就越是远离 “即插即用 “的思维方式。作为一个开发者，你的角色是选择正确的模式来对应正确的需求。<br>为了帮助你完成这项任务，下面的图表根据 “集成的复杂性 “和 “控制反转 “这两个因素对所有这些模式进行了分类。</p>
-<p><img src="https://miro.medium.com/max/5468/1*LVq5PcC09q34j7FExkY5Zg.png" alt="https://miro.medium.com/max/5468/1*LVq5PcC09q34j7FExkY5Zg.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e8312b508954342a1f1f2ef2114f5f2~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
 <p>这篇文章的灵感主要来自于Kent C. Dodds的惊人工作<br>如果你有兴趣了解更多关于每个模式的信息，请看他的<a href="https://kentcdodds.com/blog/" target="_blank" rel="noopener">博客</a>。我希望你觉得这篇文章有用。<br>谢谢你的阅读。</p>
 <p>更多内容请见 <a href="http://plainenglish.io/" target="_blank" rel="noopener">plainenglish.io</a></p>
 
-  <p><a class="classtest-link" href="/tags/React/">React</a>, <a class="classtest-link" href="/tags/翻译/">翻译</a> — Jun 2, 2021</p>
-  
+  </div>
+</article>
 
 
-          <div class="row mt-2">
-  
-    <div class="eight columns">
-      <p id="madewith">Made with ❤ and
-        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
-        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
-        </a>
+
         
-    </p></div>
+          <div id="footer-post-container">
+  <div id="footer-post">
 
-    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
-    <div class="four columns mb-3 posisi">
-      
-      <a class="ml-0 footer-link icon" href="https://github.com/mxggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
-        <svg class="github svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
 
-      
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-复合组件模式（Compound-Components-Pattern）"><span class="toc-number">1.</span> <span class="toc-text">1. 复合组件模式（Compound Components Pattern）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">1.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-number">1.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点"><span class="toc-number">1.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准"><span class="toc-number">1.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库"><span class="toc-number">1.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-受控属性模式"><span class="toc-number">2.</span> <span class="toc-text">2. 受控属性模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-1"><span class="toc-number">2.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-1"><span class="toc-number">2.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-1"><span class="toc-number">2.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-1"><span class="toc-number">2.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-1"><span class="toc-number">2.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-自定义钩子模式"><span class="toc-number">3.</span> <span class="toc-text">3. 自定义钩子模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-2"><span class="toc-number">3.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-2"><span class="toc-number">3.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-2"><span class="toc-number">3.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-2"><span class="toc-number">3.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-2"><span class="toc-number">3.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Props-getter-模式"><span class="toc-number">4.</span> <span class="toc-text">4. Props getter 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-3"><span class="toc-number">4.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-3"><span class="toc-number">4.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-3"><span class="toc-number">4.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-3"><span class="toc-number">4.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-3"><span class="toc-number">4.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-State-reducer-模式"><span class="toc-number">5.</span> <span class="toc-text">5. State reducer 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子-4"><span class="toc-number">5.1.</span> <span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-4"><span class="toc-number">5.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-4"><span class="toc-number">5.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准-4"><span class="toc-number">5.4.</span> <span class="toc-text">标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用此模式的公共库-4"><span class="toc-number">5.5.</span> <span class="toc-text">使用此模式的公共库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
 
-      
-      <a class="ml-0 footer-link icon" href="https://twitter.com/shuizheny" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
-        <svg class="twitter svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
-      </a>
-      
-
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://stackoverflow.com/users/7354315/muggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="StackOverflow">
-        <svg class="stackoverflow svh-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Stack Overflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"/></svg>
-      </a>
-      
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&text=翻译-五个高级React模式"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&is_video=false&description=翻译-五个高级React模式"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=翻译-五个高级React模式&body=Check out this article: https://shuizyang.com/2021/06/02/翻译-五个高级React模式/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&title=翻译-五个高级React模式"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&name=翻译-五个高级React模式&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2021/06/02/翻译-五个高级React模式/&t=翻译-五个高级React模式"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
 
     </div>
-  
-</div>
 
-        </div>
-      </div>
-
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
-  <script src="/js/nanobar.min.js"></script>
-  <script>
-    var options = {
-      classname: 'nanobar',
-      id: 'myNanobar'
-    };
-    var nanobar = new Nanobar(options);
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2021
+    muggle-shuizy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
   </script>
 
-</body>
+<script src="/js/main.js"></script>
+<!-- search -->
 
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
 </html>

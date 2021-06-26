@@ -1,183 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang=en>
 <head><meta name="generator" content="Hexo 3.9.0">
-
-  <!-- Minima -->
-  <!-- Hexo theme created by @adisaktijrs -->
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-
-  
-  <title>把敲代码过程中的琐碎操作交给肌肉记忆</title>
-  
-  <link rel="canonical" href="https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/">
-  
-  <meta name="description" content="在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。 比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程">
-  
-  
-  <meta name="keywords" content="前端 代码 程序员 摄影 吉他 旅行 Dota2 数码控">
-  
-  <meta name="author" content="muggle-shuizy">
-  
-  <meta property="og:image" content="https://shuizyang.comundefined">
-  
-  <meta property="og:site_name" content="muggle‘s blog">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="把敲代码过程中的琐碎操作交给肌肉记忆">
-  
-  <meta property="og:description" content="在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。 比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程">
-  
-  <meta property="og:url" content="https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="把敲代码过程中的琐碎操作交给肌肉记忆">
-  
-  <meta name="twitter:description" content="在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。 比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程">
-  
-  
-  <meta name="twitter:image" content="https://shuizyang.comundefined">
-  
-  <meta name="twitter:url" content="https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Preload fonts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/skeleton.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  <link rel="stylesheet" href="/css/prism-dark.css">
-  <link rel="stylesheet" href="/css/prism-line-numbers.css">
-  <!-- User css -->
-  
-  <link rel="stylesheet" href="/css/user.css">
-  
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style>
-  a:not(.icon) {
-    text-decoration-color: #0FA0CE;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      #0FA0CE 50%
-    );
-  }
-  blockquote {
-    border-left: 8px solid #0FA0CE;
-  }
-  .nanobar .bar {
-    background: #0FA0CE;
-  }
-  .button.button-primary:hover,
-  button.button-primary:hover,
-  input[type="submit"].button-primary:hover,
-  input[type="reset"].button-primary:hover,
-  input[type="button"].button-primary:hover,
-  .button.button-primary:focus,
-  button.button-primary:focus,
-  input[type="submit"].button-primary:focus,
-  input[type="reset"].button-primary:focus,
-  input[type="button"].button-primary:focus {
-    background-color: #0FA0CE;
-    border-color: #0FA0CE;
-  }
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  textarea:focus,
-  select:focus {
-    border: 1px solid #0FA0CE;
-  }
-</style>
-
-  <!-- Google Analytics (With Privacy Settings On)
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。 比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程）">
+<meta name="keywords" content="效率,Mac使用技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把敲代码过程中的琐碎操作交给肌肉记忆">
+<meta property="og:url" content="https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/index.html">
+<meta property="og:site_name" content="muggle‘s blog">
+<meta property="og:description" content="在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。 比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程）">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/cover.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713272260715.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713278190397.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713278729918.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713279596093.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713284165557.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713295246586.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713309748180.jpg">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/keyboardmaestro.png">
+<meta property="og:updated_time" content="2021-06-26T09:55:10.872Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把敲代码过程中的琐碎操作交给肌肉记忆">
+<meta name="twitter:description" content="在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。 比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程）">
+<meta name="twitter:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/cover.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>把敲代码过程中的琐碎操作交给肌肉记忆</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
 </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post " href="/2019/10/19/我的终端快捷命令配置技巧/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&text=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&is_video=false&description=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=把敲代码过程中的琐碎操作交给肌肉记忆&body=Check out this article: https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&name=把敲代码过程中的琐碎操作交给肌肉记忆&description=&lt;p&gt;&lt;img src=&#34;https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/cover.jpg&#34; alt=&#34;Photo by Kate Trysh on Unsplash&#34;&gt;&lt;br&gt;在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。&lt;/p&gt;
+&lt;p&gt;比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程）&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&t=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
-        <div class="row">
-  <div class="two columns" style="max-width: 50px">
-    <h1 class="mt-2 mode">
-      <div onclick="setDarkMode(true)" id="darkBtn">🌑</div>
-      <div onclick="setDarkMode(false)" id="lightBtn" class="hidden">☀️</div>
-      <script>
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
-    </h1>
-  </div>
-
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      Hi Folks.
-    </h1>
-  </div>
-
-  <div class="twelve columns">
-    <div class="row">
-      <div class="nine columns left">
-        <a href="/">Home</a>
-        
-          
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:muggle6594@gmail.com" target="_blank" class="ml">Email</a>
-          
-        
-      </div>
     </div>
-    <hr style="margin-bottom: 2.6rem">
-  </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Karabiner-Elements"><span class="toc-number">1.</span> <span class="toc-text">Karabiner-Elements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Thor"><span class="toc-number">2.</span> <span class="toc-text">Thor</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Keyboard-Maestro"><span class="toc-number">3.</span> <span class="toc-text">Keyboard Maestro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </span>
 </div>
 
-        <div class="trans">
-            <h2>把敲代码过程中的琐碎操作交给肌肉记忆</h2>
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        把敲代码过程中的琐碎操作交给肌肉记忆
+    </h1>
 
-  <p><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/cover.jpg" alt="Photo by Kate Trysh on Unsplash"><br>在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。</p>
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">muggle-shuizy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-10-18T13:21:32.000Z" itemprop="datePublished">2019-10-18</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Mac使用技巧/">Mac使用技巧</a>, <a class="tag-link" href="/tags/效率/">效率</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/cover.jpg" alt="Photo by Kate Trysh on Unsplash"><br>在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。</p>
 <p>比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程）</p>
 <a id="more"></a>
 <p>这篇文章分享一下我是怎么把切换应用的操作交给肌肉记忆的，用到了下面两个App（macOS）</p>
@@ -188,7 +166,9 @@
 </ul>
 <h1 id="Karabiner-Elements"><a href="#Karabiner-Elements" class="headerlink" title="Karabiner-Elements"></a>Karabiner-Elements</h1><p>这是一个MacOs下强大的改键应用。键盘改键一部分原因是以前的习惯导致需要把一些键映射成其他键（比如ctrl和fn）。这里我主要用来改一些基本用不到的键。比如键盘中的右command,右option。这些键从电脑的入手到用废弃，基本按不了几下，按不了几下也就忍了，可它们占据了键盘中非常好的位置，这就有点占着茅坑不拉屎的意思了，所以为啥不改了它呢？<br>下面，我以把<code>右commnad</code>改为<code>F19</code>为例，说一下改键流程(<code>F19</code>叫做超级键<code>hyper key</code>是<code>command+shift+option+control</code>键的组合)。</p>
 <p>首先安装一下app,可以通过<a href="https://pqrs.org/osx/karabiner/" target="_blank" rel="noopener">官网</a>，或者<code>homebrew</code></p>
-<pre><code>brew install karabiner-elements</code></pre><p>安装完毕后打开<a href="https://pqrs.org/osx/karabiner/complex_modifications/#modifier-keys" target="_blank" rel="noopener">这个网站</a>。<br><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713272260715.jpg" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install karabiner-elements</span><br></pre></td></tr></table></figure>
+
+<p>安装完毕后打开<a href="https://pqrs.org/osx/karabiner/complex_modifications/#modifier-keys" target="_blank" rel="noopener">这个网站</a>。<br><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713272260715.jpg" alt></p>
 <p>可以看到这里列出了很多的改键预设，你可以找一个你喜欢的，或者差不多的点击import，这里选择<code>Change caps_lock key(rev4)</code>。如果你已经安装好了KE，点击后会自动提示是否打开KE，点击打开。</p>
 <p><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713278190397.jpg" alt><br>打开后，点击import.<br><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713278729918.jpg" alt><br>接着会进入这个界面，随便选一个enable就成，反正最终都是要改的。<br><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713279596093.jpg" alt><br>操作完之后，复杂改键（complex modifications）Tab栏下的Rules就会多一条。<br><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713284165557.jpg" alt></p>
 <blockquote>
@@ -196,66 +176,11 @@
 </blockquote>
 <p>接下来讲一下怎么把这个键改成右<code>command</code>。</p>
 <p>打开下面这个文件。</p>
-<pre><code>~/.config/karabiner/karabiner.json</code></pre><p>这个文件是KE的配置文件，其实上面的一系列操作的结果最终会写入这个配置文件中。注意到很长的那个description了吗，就是我们刚才操作的结果。你可以按照上面的步骤多引入几个看一看，看完然后差不多就明白配置文件的语法了。这里按照我们的要求，只要把<code>caps_lock</code>改为<code>right_command</code>即可。</p>
-<pre><code class="javascript">{
-  &quot;global&quot;: {
-      &quot;check_for_updates_on_startup&quot;: true,
-      &quot;show_in_menu_bar&quot;: true,
-      &quot;show_profile_name_in_menu_bar&quot;: false
-  },
-  &quot;profiles&quot;: [
-      {
-          &quot;complex_modifications&quot;: {
-              &quot;parameters&quot;: {
-                  &quot;basic.simultaneous_threshold_milliseconds&quot;: 50,
-                  &quot;basic.to_delayed_action_delay_milliseconds&quot;: 500,
-                  &quot;basic.to_if_alone_timeout_milliseconds&quot;: 1000,
-                  &quot;basic.to_if_held_down_threshold_milliseconds&quot;: 500
-              },
-              &quot;rules&quot;: [
-                  {
-                      &quot;description&quot;: &quot;Change caps_lock key to command+control+option+shift. (Post f19 key when pressed alone)&quot;,
-                      &quot;manipulators&quot;: [
-                          {
-                              &quot;from&quot;: {
-                                  &quot;key_code&quot;: &quot;caps_lock&quot;, // 改为right_command
-                                  &quot;modifiers&quot;: {
-                                      &quot;optional&quot;: [
-                                          &quot;any&quot;
-                                      ]
-                                  }
-                              },
-                              &quot;to&quot;: [
-                                  {
-                                      &quot;key_code&quot;: &quot;left_shift&quot;,
-                                      &quot;modifiers&quot;: [
-                                          &quot;left_command&quot;,
-                                          &quot;left_control&quot;,
-                                          &quot;left_option&quot;
-                                      ]
-                                  }
-                              ],
-                              &quot;to_if_alone&quot;: [
-                                  {
-                                      &quot;key_code&quot;: &quot;f19&quot;
-                                  }
-                              ],
-                              &quot;type&quot;: &quot;basic&quot;
-                          }
-                      ]
-                  }
-              ]
-          },
-          &quot;devices&quot;: [],
-          &quot;name&quot;: &quot;Default profile&quot;,
-          &quot;selected&quot;: true,
-          &quot;simple_modifications&quot;: [],
-          &quot;virtual_hid_keyboard&quot;: {
-              &quot;country_code&quot;: 0
-          }
-      }
-  ]
-}</code></pre>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~/.config/karabiner/karabiner.json</span><br></pre></td></tr></table></figure>
+
+<p>这个文件是KE的配置文件，其实上面的一系列操作的结果最终会写入这个配置文件中。注意到很长的那个description了吗，就是我们刚才操作的结果。你可以按照上面的步骤多引入几个看一看，看完然后差不多就明白配置文件的语法了。这里按照我们的要求，只要把<code>caps_lock</code>改为<code>right_command</code>即可。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"global"</span>: &#123;</span><br><span class="line">      <span class="string">"check_for_updates_on_startup"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"show_in_menu_bar"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"show_profile_name_in_menu_bar"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"profiles"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">"complex_modifications"</span>: &#123;</span><br><span class="line">              <span class="string">"parameters"</span>: &#123;</span><br><span class="line">                  <span class="string">"basic.simultaneous_threshold_milliseconds"</span>: <span class="number">50</span>,</span><br><span class="line">                  <span class="string">"basic.to_delayed_action_delay_milliseconds"</span>: <span class="number">500</span>,</span><br><span class="line">                  <span class="string">"basic.to_if_alone_timeout_milliseconds"</span>: <span class="number">1000</span>,</span><br><span class="line">                  <span class="string">"basic.to_if_held_down_threshold_milliseconds"</span>: <span class="number">500</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="string">"rules"</span>: [</span><br><span class="line">                  &#123;</span><br><span class="line">                      <span class="string">"description"</span>: <span class="string">"Change caps_lock key to command+control+option+shift. (Post f19 key when pressed alone)"</span>,</span><br><span class="line">                      <span class="string">"manipulators"</span>: [</span><br><span class="line">                          &#123;</span><br><span class="line">                              <span class="string">"from"</span>: &#123;</span><br><span class="line">                                  <span class="string">"key_code"</span>: <span class="string">"caps_lock"</span>, <span class="comment">// 改为right_command</span></span><br><span class="line">                                  <span class="string">"modifiers"</span>: &#123;</span><br><span class="line">                                      <span class="string">"optional"</span>: [</span><br><span class="line">                                          <span class="string">"any"</span></span><br><span class="line">                                      ]</span><br><span class="line">                                  &#125;</span><br><span class="line">                              &#125;,</span><br><span class="line">                              <span class="string">"to"</span>: [</span><br><span class="line">                                  &#123;</span><br><span class="line">                                      <span class="string">"key_code"</span>: <span class="string">"left_shift"</span>,</span><br><span class="line">                                      <span class="string">"modifiers"</span>: [</span><br><span class="line">                                          <span class="string">"left_command"</span>,</span><br><span class="line">                                          <span class="string">"left_control"</span>,</span><br><span class="line">                                          <span class="string">"left_option"</span></span><br><span class="line">                                      ]</span><br><span class="line">                                  &#125;</span><br><span class="line">                              ],</span><br><span class="line">                              <span class="string">"to_if_alone"</span>: [</span><br><span class="line">                                  &#123;</span><br><span class="line">                                      <span class="string">"key_code"</span>: <span class="string">"f19"</span></span><br><span class="line">                                  &#125;</span><br><span class="line">                              ],</span><br><span class="line">                              <span class="string">"type"</span>: <span class="string">"basic"</span></span><br><span class="line">                          &#125;</span><br><span class="line">                      ]</span><br><span class="line">                  &#125;</span><br><span class="line">              ]</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="string">"devices"</span>: [],</span><br><span class="line">          <span class="string">"name"</span>: <span class="string">"Default profile"</span>,</span><br><span class="line">          <span class="string">"selected"</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="string">"simple_modifications"</span>: [],</span><br><span class="line">          <span class="string">"virtual_hid_keyboard"</span>: &#123;</span><br><span class="line">              <span class="string">"country_code"</span>: <span class="number">0</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>改完左command，接下来就可以依样画葫芦，改右option，右shift，甚至左option。</p>
 <p>到这里改键就完成了。之后就是给你改好的键分配命令了，这就看你的需求了，比如我把<code>右command</code>给了<code>Alfred</code>, <code>右option</code>给了<code>iTerm2</code>。绑定完之后就可以愉快一键激活App了。<br><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/15713295246586.jpg" alt></p>
 <p>这里有个问题，不是所有app都如Alfred一样，提供了设置快捷键激活窗口的功能。<br>这就需要用到下面的app协助了</p>
@@ -278,66 +203,136 @@
 <p>其实和记忆<code>vim</code>的命令一样，这种东西不是一下子全部记住之后再去使用的，而是在工作中慢慢地用，自然而然掌握的，过程中可能需要小小地迈出自己的舒适圈。</p>
 <p>最后推荐以下耗子叔的 <a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">简明 VIM 练级攻略</a></p>
 
-  <p><a class="classtest-link" href="/tags/Mac使用技巧/">Mac使用技巧</a>, <a class="classtest-link" href="/tags/效率/">效率</a> — Oct 18, 2019</p>
-  
+  </div>
+</article>
 
 
-          <div class="row mt-2">
-  
-    <div class="eight columns">
-      <p id="madewith">Made with ❤ and
-        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
-        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
-        </a>
+
         
-    </p></div>
+          <div id="footer-post-container">
+  <div id="footer-post">
 
-    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
-    <div class="four columns mb-3 posisi">
-      
-      <a class="ml-0 footer-link icon" href="https://github.com/mxggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
-        <svg class="github svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
 
-      
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Karabiner-Elements"><span class="toc-number">1.</span> <span class="toc-text">Karabiner-Elements</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Thor"><span class="toc-number">2.</span> <span class="toc-text">Thor</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Keyboard-Maestro"><span class="toc-number">3.</span> <span class="toc-text">Keyboard Maestro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
 
-      
-      <a class="ml-0 footer-link icon" href="https://twitter.com/shuizheny" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
-        <svg class="twitter svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
-      </a>
-      
-
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://stackoverflow.com/users/7354315/muggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="StackOverflow">
-        <svg class="stackoverflow svh-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Stack Overflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"/></svg>
-      </a>
-      
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&text=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&is_video=false&description=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=把敲代码过程中的琐碎操作交给肌肉记忆&body=Check out this article: https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&title=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&name=把敲代码过程中的琐碎操作交给肌肉记忆&description=&lt;p&gt;&lt;img src=&#34;https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/15713258944824/cover.jpg&#34; alt=&#34;Photo by Kate Trysh on Unsplash&#34;&gt;&lt;br&gt;在敲代码的过程中，肯定会有不少琐碎的操作，这些操作或多或少占用着我们大脑的进程，但其实很多操作可以让我们的肌肉记忆去完成它。&lt;/p&gt;
+&lt;p&gt;比如在各个应用之间来回切换，当打开的应用超过3个以上之后，鼠标或者Tab键可能就忙不过来了，关键切换之前还得先找到对应的应用（换句话说就是在切换应用的时候额外占用了眼睛的进程）&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2019/10/18/把敲代码过程中的琐碎操作交给肌肉记忆/&t=把敲代码过程中的琐碎操作交给肌肉记忆"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
 
     </div>
-  
-</div>
 
-        </div>
-      </div>
-
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
-  <script src="/js/nanobar.min.js"></script>
-  <script>
-    var options = {
-      classname: 'nanobar',
-      id: 'myNanobar'
-    };
-    var nanobar = new Nanobar(options);
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2021
+    muggle-shuizy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
   </script>
 
-</body>
+<script src="/js/main.js"></script>
+<!-- search -->
 
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
 </html>

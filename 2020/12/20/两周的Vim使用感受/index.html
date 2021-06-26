@@ -1,183 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang=en>
 <head><meta name="generator" content="Hexo 3.9.0">
-
-  <!-- Minima -->
-  <!-- Hexo theme created by @adisaktijrs -->
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-
-  
-  <title>两周的Vim使用感受</title>
-  
-  <link rel="canonical" href="https://shuizyang.com/2020/12/20/两周的Vim使用感受/">
-  
-  <meta name="description" content="先列一下我在使用Vim前对于它的刻板印象     命令很多, 使用vim, 需要记忆大量的命令 现在像VSCode, webStrom 这些编辑器, IDE 生态非常丰富, 使用Vim 有点”old school”, 自动补全定义跳转这些功能搞起来也没前者方便  我平时喜欢逛逛油管, 在上面总能看到">
-  
-  
-  <meta name="keywords" content="前端 代码 程序员 摄影 吉他 旅行 Dota2 数码控">
-  
-  <meta name="author" content="muggle-shuizy">
-  
-  <meta property="og:image" content="https://shuizyang.comundefined">
-  
-  <meta property="og:site_name" content="muggle‘s blog">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="两周的Vim使用感受">
-  
-  <meta property="og:description" content="先列一下我在使用Vim前对于它的刻板印象     命令很多, 使用vim, 需要记忆大量的命令 现在像VSCode, webStrom 这些编辑器, IDE 生态非常丰富, 使用Vim 有点”old school”, 自动补全定义跳转这些功能搞起来也没前者方便  我平时喜欢逛逛油管, 在上面总能看到">
-  
-  <meta property="og:url" content="https://shuizyang.com/2020/12/20/两周的Vim使用感受/">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="两周的Vim使用感受">
-  
-  <meta name="twitter:description" content="先列一下我在使用Vim前对于它的刻板印象     命令很多, 使用vim, 需要记忆大量的命令 现在像VSCode, webStrom 这些编辑器, IDE 生态非常丰富, 使用Vim 有点”old school”, 自动补全定义跳转这些功能搞起来也没前者方便  我平时喜欢逛逛油管, 在上面总能看到">
-  
-  
-  <meta name="twitter:image" content="https://shuizyang.comundefined">
-  
-  <meta name="twitter:url" content="https://shuizyang.com/2020/12/20/两周的Vim使用感受/">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Preload fonts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/skeleton.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  <link rel="stylesheet" href="/css/prism-dark.css">
-  <link rel="stylesheet" href="/css/prism-line-numbers.css">
-  <!-- User css -->
-  
-  <link rel="stylesheet" href="/css/user.css">
-  
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style>
-  a:not(.icon) {
-    text-decoration-color: #0FA0CE;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      #0FA0CE 50%
-    );
-  }
-  blockquote {
-    border-left: 8px solid #0FA0CE;
-  }
-  .nanobar .bar {
-    background: #0FA0CE;
-  }
-  .button.button-primary:hover,
-  button.button-primary:hover,
-  input[type="submit"].button-primary:hover,
-  input[type="reset"].button-primary:hover,
-  input[type="button"].button-primary:hover,
-  .button.button-primary:focus,
-  button.button-primary:focus,
-  input[type="submit"].button-primary:focus,
-  input[type="reset"].button-primary:focus,
-  input[type="button"].button-primary:focus {
-    background-color: #0FA0CE;
-    border-color: #0FA0CE;
-  }
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  textarea:focus,
-  select:focus {
-    border: 1px solid #0FA0CE;
-  }
-</style>
-
-  <!-- Google Analytics (With Privacy Settings On)
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="先列一下我在使用Vim前对于它的刻板印象">
+<meta name="keywords" content="前端 代码 程序员 摄影 吉他 旅行 Dota2 数码控">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两周的Vim使用感受">
+<meta property="og:url" content="https://shuizyang.com/2020/12/20/两周的Vim使用感受/index.html">
+<meta property="og:site_name" content="muggle‘s blog">
+<meta property="og:description" content="先列一下我在使用Vim前对于它的刻板印象">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpg">
+<meta property="og:updated_time" content="2021-06-26T09:50:20.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="两周的Vim使用感受">
+<meta name="twitter:description" content="先列一下我在使用Vim前对于它的刻板印象">
+<meta name="twitter:image" content="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>两周的Vim使用感受</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
 </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post " href="/2020/12/30/在Chrome查看持续连接和非持续连接/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post " href="/2019/10/19/我的终端快捷命令配置技巧/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2020/12/20/两周的Vim使用感受/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&text=两周的Vim使用感受"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&is_video=false&description=两周的Vim使用感受"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=两周的Vim使用感受&body=Check out this article: https://shuizyang.com/2020/12/20/两周的Vim使用感受/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&name=两周的Vim使用感受&description=&lt;p&gt;&lt;img src=&#34;https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpg&#34; alt=&#34;Photo by Florian Olivo&#34;&gt;&lt;br&gt;先列一下我在使用Vim前对于它的刻板印象 &lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&t=两周的Vim使用感受"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
-        <div class="row">
-  <div class="two columns" style="max-width: 50px">
-    <h1 class="mt-2 mode">
-      <div onclick="setDarkMode(true)" id="darkBtn">🌑</div>
-      <div onclick="setDarkMode(false)" id="lightBtn" class="hidden">☀️</div>
-      <script>
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
-    </h1>
-  </div>
-
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      Hi Folks.
-    </h1>
-  </div>
-
-  <div class="twelve columns">
-    <div class="row">
-      <div class="nine columns left">
-        <a href="/">Home</a>
-        
-          
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:muggle6594@gmail.com" target="_blank" class="ml">Email</a>
-          
-        
-      </div>
     </div>
-    <hr style="margin-bottom: 2.6rem">
-  </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#教程开始"><span class="toc-number">1.</span> <span class="toc-text">教程开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模式"><span class="toc-number">1.1.</span> <span class="toc-text">模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上下左右移动"><span class="toc-number">1.2.</span> <span class="toc-text">上下左右移动,</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单词移动"><span class="toc-number">1.3.</span> <span class="toc-text">单词移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块移动"><span class="toc-number">1.4.</span> <span class="toc-text">块移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复杂移动"><span class="toc-number">1.5.</span> <span class="toc-text">复杂移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入命令"><span class="toc-number">1.6.</span> <span class="toc-text">插入命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">1.7.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改写"><span class="toc-number">1.8.</span> <span class="toc-text">改写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销与重做"><span class="toc-number">1.9.</span> <span class="toc-text">撤销与重做</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制粘贴"><span class="toc-number">1.10.</span> <span class="toc-text">复制粘贴</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将Vim视作工具使用"><span class="toc-number">2.</span> <span class="toc-text">将Vim视作工具使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分享两点感受"><span class="toc-number">3.</span> <span class="toc-text">分享两点感受</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考内容"><span class="toc-number">4.</span> <span class="toc-text">参考内容</span></a></li></ol>
+    </div>
+  </span>
 </div>
 
-        <div class="trans">
-            <h2>两周的Vim使用感受</h2>
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        两周的Vim使用感受
+    </h1>
 
-  <p><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpg" alt="Photo by Florian Olivo"><br>先列一下我在使用Vim前对于它的刻板印象 </p>
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">muggle-shuizy</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-12-20T10:25:58.000Z" itemprop="datePublished">2020-12-20</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpg" alt="Photo by Florian Olivo"><br>先列一下我在使用Vim前对于它的刻板印象 </p>
 <a id="more"></a>
 
 <ol>
@@ -187,7 +153,7 @@
 <p>我平时喜欢逛逛油管, 在上面总能看到一些大佬撸代码的视频, 或者敲代码的crash course . 关注的几个博主比如大名鼎鼎、破解iPhone手机的George Hotz, 软件顾问Ben Award 都还在使用vim. 在他们手里那个光标像个带了个跳刀的火猫在代码间穿梭自如. 我忍不住打开vim 敲了几下,MD我的光标简直像个小脑发育不全的智障. </p>
 <p>羡慕之余, 我学起了Vim, 现在已经用了两个礼拜了, 基本离不开它了，很多命令已经熟记在心(其实两天就够了), 只差多练提速了</p>
 <p>网上vim 命令大全一搜一大堆, 我这里就只记录一下常用的几个命令, 有了以下几个, 基本上就能非常愉快地使用vim了</p>
-<h1 id="教程开始"><a href="#教程开始" class="headerlink" title="教程开始"></a>教程开始</h1><h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><ul>
+<h2 id="教程开始"><a href="#教程开始" class="headerlink" title="教程开始"></a>教程开始</h2><h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><ul>
 <li>正常模式(Normal Mode) 大部分命令都在这个模式发出(按<code>esc</code>退出其他模式进入normal模式)</li>
 <li>插入模式(Insert Mode) 可以输入文本，在正常模式下，按<code>i</code>、<code>a</code>、<code>o</code>等都可以进入插入模式。</li>
 <li>可视模式(Visual Mode)：正常模式下按v可以进入可视模式， 在可视模式下，移动光标可以选择文本。按<code>V</code>进入可视行模式， 总是整行整行的选中。<code>ctrl+v</code>进入可视块模式.</li>
@@ -257,11 +223,10 @@
 </ul>
 <p>我现在习惯于 行选择模式<code>V</code> + 移动命令 + <code>y</code> 复制大段大段的文字.</p>
 <p>好了, 其实说完复制粘贴就够了, 懂得都懂。 </p>
-<h1 id="将Vim视作工具使用"><a href="#将Vim视作工具使用" class="headerlink" title="将Vim视作工具使用"></a>将Vim视作工具使用</h1><p>vim和现在的各种IDE并不互斥,开发过程中完全可以两者结合一起使用, 把Vim当作一个提高你编码效率的工具</p>
+<h2 id="将Vim视作工具使用"><a href="#将Vim视作工具使用" class="headerlink" title="将Vim视作工具使用"></a>将Vim视作工具使用</h2><p>vim和现在的各种IDE并不互斥,开发过程中完全可以两者结合一起使用, 把Vim当作一个提高你编码效率的工具</p>
 <p>结合的方式很简单, 如果是VScode 安装Vim插件即可, 类似Webstorm,Idea 这些可以安装IdeaVim.</p>
 <p>作为中国程序员, 推荐安装 IdeaVimIdeaExtension(WebStorm)插件, 这样在切换成normal模式时, 它会自动帮你将输入法更改为英文输入法, 从而避免中文输入法的干扰 (切换回插入模式时也会自动将输入法改回之前设定)</p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>分享两点感受</p>
-<ol>
+<h2 id="分享两点感受"><a href="#分享两点感受" class="headerlink" title="分享两点感受"></a>分享两点感受</h2><ol>
 <li>像Vim 这些东西,只不过是工具而已, 只要能提高效率和体验, 怎么用见仁见智, 不要为Vim而Vim</li>
 <li>学习是个积累的过程, 避免一口吃成胖子的心态, 像Vim, 刚开始可能只能记住简单的几个命令, 但在coding过程中, 只要不断地使用, 所掌握的命令肯定会越来越多, 也会越来越熟练(我就在这么积累中)</li>
 </ol>
@@ -270,66 +235,135 @@
 <p><a href="http://www2.geog.ucl.ac.uk/~plewis/teaching/unix/vimtutor" target="_blank" rel="noopener">The VIM Tutor</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/51440836" target="_blank" rel="noopener">史上最全的Vim命令</a></p>
 
-  <p> — Dec 20, 2020</p>
-  
+  </div>
+</article>
 
 
-          <div class="row mt-2">
-  
-    <div class="eight columns">
-      <p id="madewith">Made with ❤ and
-        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
-        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
-        </a>
+
         
-    </p></div>
+          <div id="footer-post-container">
+  <div id="footer-post">
 
-    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
-    <div class="four columns mb-3 posisi">
-      
-      <a class="ml-0 footer-link icon" href="https://github.com/mxggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
-        <svg class="github svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
 
-      
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#教程开始"><span class="toc-number">1.</span> <span class="toc-text">教程开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模式"><span class="toc-number">1.1.</span> <span class="toc-text">模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上下左右移动"><span class="toc-number">1.2.</span> <span class="toc-text">上下左右移动,</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单词移动"><span class="toc-number">1.3.</span> <span class="toc-text">单词移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#块移动"><span class="toc-number">1.4.</span> <span class="toc-text">块移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复杂移动"><span class="toc-number">1.5.</span> <span class="toc-text">复杂移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入命令"><span class="toc-number">1.6.</span> <span class="toc-text">插入命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">1.7.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改写"><span class="toc-number">1.8.</span> <span class="toc-text">改写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销与重做"><span class="toc-number">1.9.</span> <span class="toc-text">撤销与重做</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制粘贴"><span class="toc-number">1.10.</span> <span class="toc-text">复制粘贴</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将Vim视作工具使用"><span class="toc-number">2.</span> <span class="toc-text">将Vim视作工具使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分享两点感受"><span class="toc-number">3.</span> <span class="toc-text">分享两点感受</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考内容"><span class="toc-number">4.</span> <span class="toc-text">参考内容</span></a></li></ol>
+    </div>
 
-      
-      <a class="ml-0 footer-link icon" href="https://twitter.com/shuizheny" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
-        <svg class="twitter svg-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
-      </a>
-      
-
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://stackoverflow.com/users/7354315/muggle" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="StackOverflow">
-        <svg class="stackoverflow svh-hov" width="18" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Stack Overflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"/></svg>
-      </a>
-      
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2020/12/20/两周的Vim使用感受/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&text=两周的Vim使用感受"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&is_video=false&description=两周的Vim使用感受"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=两周的Vim使用感受&body=Check out this article: https://shuizyang.com/2020/12/20/两周的Vim使用感受/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&title=两周的Vim使用感受"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&name=两周的Vim使用感受&description=&lt;p&gt;&lt;img src=&#34;https://muggle-blog.oss-cn-hangzhou.aliyuncs.com/blog/florian-olivo-4hbJ-eymZ1o-unsplash.jpg&#34; alt=&#34;Photo by Florian Olivo&#34;&gt;&lt;br&gt;先列一下我在使用Vim前对于它的刻板印象 &lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2020/12/20/两周的Vim使用感受/&t=两周的Vim使用感受"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
 
     </div>
-  
-</div>
 
-        </div>
-      </div>
-
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
     </div>
 
   </div>
-  <script src="/js/nanobar.min.js"></script>
-  <script>
-    var options = {
-      classname: 'nanobar',
-      id: 'myNanobar'
-    };
-    var nanobar = new Nanobar(options);
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2021
+    muggle-shuizy
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
   </script>
 
-</body>
+<script src="/js/main.js"></script>
+<!-- search -->
 
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
 </html>
