@@ -10,7 +10,7 @@
 <meta name="keywords" content="前端 代码 程序员 吉他 旅行 Dota2 数码控 美剧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Frp内网穿透">
-<meta property="og:url" content="https://shuizyang.com/2021/06/26/Frp内网穿透/index.html">
+<meta property="og:url" content="https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/index.html">
 <meta property="og:site_name" content="shuizhenyang‘s blog">
 <meta property="og:description" content="内网穿透用来干嘛内网穿透可以连接内网服务器，在外网演示内网web站点，连接家里的NAS，远程家里的电脑等等我主要是因为某里云，某讯云啥的高配置服务器太贵了，打工人表示买不起。低配置的服务器又基本上只能当个blog服务器。家里正好有个废旧笔记本，还是固态硬盘，食之无味弃之可惜。我就在上面装了个ubuntu来玩玩一些技术，然后就顺便内网穿透一下。 为啥需要内网穿透如果没有公网 IP，那么意味着你在本机">
 <meta property="og:locale" content="en">
@@ -90,17 +90,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2021/06/26/Frp内网穿透/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&text=Frp内网穿透"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&is_video=false&description=Frp内网穿透"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Frp内网穿透&body=Check out this article: https://shuizyang.com/2021/06/26/Frp内网穿透/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&name=Frp内网穿透&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2021/06/26/Frp内网穿透/&t=Frp内网穿透"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&text=Frp内网穿透"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&is_video=false&description=Frp内网穿透"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Frp内网穿透&body=Check out this article: https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&name=Frp内网穿透&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&t=Frp内网穿透"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -244,17 +244,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://shuizyang.com/2021/06/26/Frp内网穿透/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&text=Frp内网穿透"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&is_video=false&description=Frp内网穿透"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Frp内网穿透&body=Check out this article: https://shuizyang.com/2021/06/26/Frp内网穿透/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://shuizyang.com/2021/06/26/Frp内网穿透/&name=Frp内网穿透&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://shuizyang.com/2021/06/26/Frp内网穿透/&t=Frp内网穿透"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&text=Frp内网穿透"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&is_video=false&description=Frp内网穿透"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Frp内网穿透&body=Check out this article: https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&title=Frp内网穿透"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&name=Frp内网穿透&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://mxggle.github.io/myHexoBlog/2021/06/26/Frp内网穿透/&t=Frp内网穿透"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
