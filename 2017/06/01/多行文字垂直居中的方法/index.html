@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="单行文字在容器内垂直居中很简单，只要加一个line-height就可以轻松解决。但想要让多行文字垂直居中，使用line-height就很尴尬了。本文介绍如何使用display：table的方法实现文字的多行居中。 HTML代码： &amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;	&amp;lt;p class=&amp;quot;text&amp;quot;&amp;gt;第一行文字&amp;lt;br&amp;gt;第二行">
+<meta name="keywords" content="问题解决">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多行文字垂直居中的方法">
+<meta property="og:url" content="https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/index.html">
+<meta property="og:site_name" content="harry‘s blog">
+<meta property="og:description" content="单行文字在容器内垂直居中很简单，只要加一个line-height就可以轻松解决。但想要让多行文字垂直居中，使用line-height就很尴尬了。本文介绍如何使用display：table的方法实现文字的多行居中。 HTML代码： &amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;	&amp;lt;p class=&amp;quot;text&amp;quot;&amp;gt;第一行文字&amp;lt;br&amp;gt;第二行">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://oq6xfel71.bkt.clouddn.com/17-10-3/99153120.jpg">
+<meta property="og:image" content="http://oq6xfel71.bkt.clouddn.com/17-6-1/80320078.jpg">
+<meta property="og:image" content="http://oq6xfel71.bkt.clouddn.com/17-6-1/3128923.jpg">
+<meta property="og:updated_time" content="2022-07-28T03:51:24.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多行文字垂直居中的方法">
+<meta name="twitter:description" content="单行文字在容器内垂直居中很简单，只要加一个line-height就可以轻松解决。但想要让多行文字垂直居中，使用line-height就很尴尬了。本文介绍如何使用display：table的方法实现文字的多行居中。 HTML代码： &amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;	&amp;lt;p class=&amp;quot;text&amp;quot;&amp;gt;第一行文字&amp;lt;br&amp;gt;第二行">
+<meta name="twitter:image" content="http://oq6xfel71.bkt.clouddn.com/17-10-3/99153120.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/me/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/me/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/me/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>多行文字垂直居中的方法</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/me/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/me/">Home</a></li>
+         
+          <li><a href="/me/about/">About</a></li>
+         
+          <li><a href="/me/archives/">Writing</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post " href="/me/2017/10/02/阿甘正传/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&text=多行文字垂直居中的方法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&is_video=false&description=多行文字垂直居中的方法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=多行文字垂直居中的方法&body=Check out this article: https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&name=多行文字垂直居中的方法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&t=多行文字垂直居中的方法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        多行文字垂直居中的方法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">harry</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2017-06-01T04:59:23.000Z" itemprop="datePublished">2017-06-01</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/me/categories/CSS/">CSS</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/me/tags/问题解决/">问题解决</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="http://oq6xfel71.bkt.clouddn.com/17-10-3/99153120.jpg" alt></p>
+<p>单行文字在容器内垂直居中很简单，只要加一个line-height就可以轻松解决。但想要让多行文字垂直居中，使用line-height就很尴尬了。本文介绍如何使用display：table的方法实现文字的多行居中。</p>
+<p><strong>HTML代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">	&lt;p class=&quot;text&quot;&gt;第一行文字&lt;br&gt;第二行文字&lt;br&gt;第三行文字&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>CSS代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*&#123;margin: 0;padding: 0;color: #fff;&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">	display: table;</span><br><span class="line">	background-color: #105B63;</span><br><span class="line">	margin: 100px auto;</span><br><span class="line">	width: 500px;</span><br><span class="line">	height: 500px;</span><br><span class="line">	text-align: center;</span><br><span class="line">	border:1px #000 solid;</span><br><span class="line">&#125;</span><br><span class="line">.text&#123;</span><br><span class="line">	display: table-cell;</span><br><span class="line">	vertical-align: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如下图所示实现了文字的垂直居中。<br><img src="http://oq6xfel71.bkt.clouddn.com/17-6-1/80320078.jpg" alt></p>
+<p>但是在ie7中打开发现并没有生效<br><img src="http://oq6xfel71.bkt.clouddn.com/17-6-1/3128923.jpg" alt><br>解决此兼容问题的方法，只能在ie浏览其中使用定位的方法。</p>
+<p><strong>HTML代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;inner-box&quot;&gt;</span><br><span class="line">		&lt;p class=&quot;text&quot;&gt;第一行文字&lt;br&gt;第二行文字&lt;br&gt;第三行文字&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>CSS代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*&#123;margin: 0;padding: 0;color: #fff;&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">	position:relative;</span><br><span class="line">	display: table;</span><br><span class="line">	background-color: #105B63;</span><br><span class="line">	margin: 100px auto;</span><br><span class="line">	width: 500px;</span><br><span class="line">	height: 500px;</span><br><span class="line">	text-align: center;</span><br><span class="line">	border:1px #000 solid;</span><br><span class="line">&#125;</span><br><span class="line">.inner-box&#123;</span><br><span class="line">	display: table-cell;</span><br><span class="line">	vertical-align: middle;</span><br><span class="line">	*position: absolute;</span><br><span class="line">	*width: 100%;</span><br><span class="line">	*top: 50%;</span><br><span class="line">	*left: 0;</span><br><span class="line">&#125;</span><br><span class="line">.inner-box p&#123;</span><br><span class="line">	*position: relative;</span><br><span class="line">	*top:-50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/me/">Home</a></li>
+         
+          <li><a href="/me/about/">About</a></li>
+         
+          <li><a href="/me/archives/">Writing</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&text=多行文字垂直居中的方法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&is_video=false&description=多行文字垂直居中的方法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=多行文字垂直居中的方法&body=Check out this article: https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&title=多行文字垂直居中的方法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&name=多行文字垂直居中的方法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://mxggle.github.io/me/2017/06/01/多行文字垂直居中的方法/&t=多行文字垂直居中的方法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2023
+    harry
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/me/">Home</a></li>
+         
+          <li><a href="/me/about/">About</a></li>
+         
+          <li><a href="/me/archives/">Writing</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/me/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
